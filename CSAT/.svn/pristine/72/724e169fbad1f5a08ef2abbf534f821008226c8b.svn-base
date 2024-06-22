@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1494159A-7117-465D-9680-5995B364F5E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSAT.BLL</RootNamespace>
+    <AssemblyName>CSAT.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonValidation.cs" />
+    <Compile Include="ComponentResolver\DependencyResolver.cs" />
+    <Compile Include="Contracts\IAdminBLL.cs" />
+    <Compile Include="Implementations\AdminBLL.cs" />
+    <Compile Include="Implementations\FeedbackServicesBLL.cs" />
+    <Compile Include="Implementations\TokenBLL.cs" />
+    <Compile Include="Contracts\ITokenBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSAT.DAL\CSAT.DAL.csproj">
+      <Project>{ea8f2126-73d3-45ad-998a-ce9e0086118a}</Project>
+      <Name>CSAT.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSAT.DTO\CSAT.DTO.csproj">
+      <Project>{d9b51c09-d8ca-4ee1-b3f0-33405b47b565}</Project>
+      <Name>CSAT.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSAT.Logging\CSAT.Logging.csproj">
+      <Project>{799bf68d-fe55-4842-be3e-625c86e34c4a}</Project>
+      <Name>CSAT.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSAT.Resolver\CSAT.Resolver.csproj">
+      <Project>{6686aec5-5bfd-4595-b614-42e2fb6de1d8}</Project>
+      <Name>CSAT.Resolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

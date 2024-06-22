@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="CSAT Admin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="~/css/bootstrap-Theme.min.css" rel="stylesheet" />
+    <link href="~/css/style-Theme.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+</head>
+<body style="background-color: #eff0f5 !important;  ">
+    
+
+
+        <div class="sufee-login d-flex align-content-center flex-wrap">
+            <div class="container">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <a href="#">
+                            <h1 style="color:#00c292">Login</h1>
+                        </a>
+                    </div>
+                    <div class="login-form">
+                        <form>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input id="txtusername" type="text" novalidate class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input id="txtpassword" novalidate name="textinput" type="password" placeholder="Password" class="form-control">
+                            </div>
+                            @*<div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember Me
+                                    </label>
+                                    <label class="pull-right">
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+                                </div>*@
+                            <a class="btn btn-success btn-flat m-b-30 m-t-30" style="color:white;background-color:#00c292;" onclick="javascript:Submit()">Sign in</a>
+                            @*<div class="register-link m-t-15 text-center">
+                                    <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                                </div>*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap-theme.min.js"></script>
+        @*<script src="~/js/FeedbackServices/Config.js"></script>*@
+        <script src="~/js/Login/Login.js"></script>
+</body>
+</html>
+
+
+@*<style>
+    body {
+        background-image: url('../../images/JCB/jvb-2.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>*@

@@ -1,0 +1,196 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="" ng-app="appMJEM">
+<!--<![endif]-->
+<head >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Admin</title>
+    
+    <meta name="description" content="MJEM Admin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/Linq.js/linq.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="~/Scripts/bootstrap-theme.min.js"></script>
+
+    <link href="~/css/bootstrap-Theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/css/style-Theme.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/pe-icon-7-stroke.min.css" rel="stylesheet" />
+
+    
+    <script src="~/Scripts/MJEM-Configuration/MJEMapp.js"></script>
+    
+
+</head>
+<body>
+   
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li class="active">
+                        <a href="/Admin/Index"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    </li>
+
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-cogs"></i>Configuration
+                        </a>
+                        <ul class="sub-menu children dropdown-menu">
+                            @*<li><i class="fa fa-bars"></i><a href="">Category</a></li>*@
+                            @*<li><i class="fa fa-puzzle-piece"></i><a href="">Rating</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="">Role</a></li>*@
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-table"></i> Master
+                        </a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-address-book-o"></i><a href="/Customer/Index">Customers</a></li>
+                            <li><i class="fa fa-map-marker"></i><a href="/LocationMst/Index">Site (locations)</a></li>
+                            <li><i class="fa fa-id-card"></i><a href="/EmployeeMst/Index">Employees </a></li>
+                            <li><i class="fa fa-bus"></i><a href="/Vechilemst/Index">Vechiles</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-check"></i> Transaction
+                        </a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa fa-book"></i><a href="/JobSheetTxn/Index">Job sheet</a></li>
+
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    @*<a class="navbar-brand" href="./"><img src="~/images/logo.png" alt="Logo"></a>*@
+                    
+                    <a class="navbar-brand hidden" href="./">@*<img src="images/logo2.png" alt="Logo">*@</a>
+                    <a id="menuToggle" class="menutoggle"> <i class="fa fa-bars"> </i></a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+
+                    <div class="user-area dropdown float-left">
+                        @*<a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" id="loginimg" src="~/images/images.png" alt="User Avatar">
+                        </a>
+                        
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#" onclick="Logout();"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>*@
+
+                        <input type="button" class="btn btn-danger" onclick="Logout();" name="name" value="Logout" />
+                            
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+
+        <!-- /#header -->
+        <!-- Content -->
+        
+        <div class="content" style="background-color:#eff0f5;">
+          
+              @RenderBody()
+           
+        </div>
+        <div class="clearfix"></div>
+
+       
+            <div class="col-sm-12">
+                <!-- Footer -->
+                <footer class="site-footer">
+                    <div class="footer-inner">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                Copyright &copy; @DateTime.Now.Year -  Admin
+                            </div>
+
+                        </div>
+                    </div>
+                </footer>
+                <!-- /.site-footer -->
+            </div>
+       
+    </div>
+
+    
+    <!-- /#right-panel -->
+
+  
+
+
+
+    <!--Please Wait Loader-->
+
+    <div id="divLoading" style="margin: 0px;
+                         padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%;
+                         background-color: rgb(255, 255, 255); z-index: 30001; opacity: 1.0;">
+        <p style="position: absolute; color: green; top: 50%; left: 45%;">
+            Loading, please wait...
+
+
+            <img src="~/images/Loaders/PleaseWait.gif" />
+        </p>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        setTimeout(function () {
+           $('#divLoading').hide();
+        }, 3000);
+    </script>
+
+
+
+
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    
+
+    <script src="~/Scripts/jquery.matchHeight.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/js/Login/Logout.js"></script>
+    <!--Local Stuff-->
+
+</body>
+</html>

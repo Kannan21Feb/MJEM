@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<script src="~/Scripts/ng/Controller/CustomerMst/CustomerDetailsController.js"></script>
+<script src="~/Scripts/ng/Services/CustomerService/CustomerService.js"></script>
+
+
+<div class="row" ng-controller="Customer.CustomerDetailsController" ng-init="init();" ng-cloak>
+    <div class="col-sm-12">
+
+        <form class="form-horizontal" name="form" id="form" novalidate>
+
+            <input type="hidden" value=@ViewBag.ActionType id="ActionType" name="ActionType" />
+            <input type="hidden" value=@ViewBag.id id="ActionId" name="ActionId" />
+
+            <div class="row">
+                <div class="col-sm-6 ">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Customer Name<span class="color-red"> *</span> </label>
+                        <div class="col-sm-6">
+                            <div>
+                                <input type="hidden" id="CustomerId" only-name ng-model="CustomerId" class="form-control" autofocus required>
+                                <input type="text" id="customername" only-name ng-model="CustomerName" class="form-control" autofocus required>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 ">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Mobile Number </label>
+                        <div class="col-sm-6">
+                            <div ng-class="{ 'has-error' : form.mobilenumber.$invalid && (form.mobilenumber.$dirty || submitted)}">
+                                <input type="text" id="mobilenumber" ng-model="MobileNumber"
+                                       class="form-control"  name="mobilenumber" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Address</label>
+                        <div class="col-sm-6">
+                            <div ng-class="{ 'has-error' : form.address.$invalid && (form.address.$dirty || submitted)}">
+                                <textarea id="address" rows="4" cols="50" ng-model="CustomerAddress"
+                                          class="form-control" name="address"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 errmsg" style="color:red;" ng-show="errordisplay">
+                    <ul class="errormsgcenter" ng-if="errorlist.length > 0">
+                        <li ng-repeat="e in errorlist">
+                            {{e}}
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+            <div class="text-right">
+                <button type="submit" id="save" class="btn btn-primary" ng-click="PerformAction()">Save</button>
+                <button type="submit" id="Refresh" class="btn btn-warning" ng-click="clearfield()"> Refresh</button>
+                <button type="submit" id="Back" class="btn btn-dark" onclick="window.location.href='/Customer/Index'">Back</button>
+
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+</div>
+

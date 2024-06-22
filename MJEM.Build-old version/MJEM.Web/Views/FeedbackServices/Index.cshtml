@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pantai</title>
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300i,400,700" rel="stylesheet">
+    <!-- Font awesome -->
+    <!-- Font awesome -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg">
+    <div class="customer_satisfaction">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="logo mt30 text-center">
+                    <img src="~/images/logo.png" alt="Logo" />
+                </div>
+                <div class="customer_satisfaction_content ht636">
+                    <h1>Thank You! for sharing your Feedback</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--CDN jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!--Custom jq-->
+    <script>
+        $(document).ready(function () {
+            $(".smiley").click(function () {
+                $(".smiley").each(function () {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

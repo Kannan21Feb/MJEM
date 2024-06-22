@@ -1,0 +1,10 @@
+﻿body 
+{
+}
+
+.PencilClr{color:green;cursor: pointer}
+
+.TrashBinClr{color:red;cursor: pointer}
+
+#pdf{color:red;cursor: pointer;font-size:30px;}
+#excel{color:green;cursor: pointer;font-size:30px;}

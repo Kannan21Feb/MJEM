@@ -1,0 +1,140 @@
+﻿using CSAT.BLL;
+using CSAT.DAL;
+using CSAT.DTO;
+using CSAT.Logging;
+using System;
+using System.Linq;
+
+namespace CSAT.BLL
+{
+    public class TokenBLL : ITokenBLL
+    {
+        #region Private member variables.
+        private readonly TokenDAL _tokenDAL;
+        #endregion
+
+        #region Public constructor.
+        /// <summary>
+        /// Public constructor.
+        /// </summary>
+        public TokenBLL(TokenDAL tokenDAL)
+        {
+            _tokenDAL = tokenDAL;
+        }
+        #endregion
+        #region Public member methods.
+
+        /// <summary>
+        ///  Function to generate unique token with expiry against the provided userId.
+        ///  Also add a record in database for generated token.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public TokenDTO GenerateToken(int userId)
+        {
+           
+            LogHelper.Info("Authentication Token generate BLL method is log entry");
+            try
+            {
+                var tokenModel = _tokenDAL.GenerateToken(userId);
+                LogHelper.Info("Authentication Token generate BLL method is log exit");
+
+                return tokenModel;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Authentication Token generate BLL method exception, " + ex.Message);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Method to validate token against expiry and existence in database.
+        /// </summary>
+        /// <param name="tokenId"></param>
+        /// <returns></returns>
+        public bool ValidateToken(string tokenId)
+        {
+            LogHelper.Info("Authentication validate token BLL method is log entry");
+            try
+            {
+                var bResult = _tokenDAL.ValidateToken(tokenId);
+                LogHelper.Info("Authentication validate token BLL method is log exit");
+
+                return bResult;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Authentication validate token method exception, " + ex.Message);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Method to kill the provided token id.
+        /// </summary>
+        /// <param name="tokenId">true for successful delete</param>
+        public bool Kill(string tokenId)
+        {
+            LogHelper.Info("Authentication Kill token BLL method is log entry");
+            try
+            {
+                var bResult = _tokenDAL.Kill(tokenId);
+                LogHelper.Info("Authentication Kill token BLL method is log exit");
+
+                return bResult;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Authentication Kill token BLL method exception, " + ex.Message);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Delete tokens for the specific deleted user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>true for successful delete</returns>
+        public bool DeleteByUserId(int userId)
+        {
+            LogHelper.Info("Authentication Delete token by UserId  BLL method is log entry");
+            try
+            {
+                var bResult = _tokenDAL.DeleteByUserId(userId);
+                LogHelper.Info("Authentication  Delete token by UserId BLL method is log exit");
+
+                return bResult;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Authentication  Delete token by UserId BLL method exception, " + ex.Message);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Delete tokens for the specific deleted user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>true for successful delete</returns>
+        public int Authenticate(string userName, string password)
+        {
+            LogHelper.Info("Authentication Login BLL method is log entry");
+            try
+            {
+                var bResult = _tokenDAL.Authenticate( userName,  password);
+                LogHelper.Info("Authentication Login BLL method is log exit");
+
+                return bResult;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Authentication Login BLL method exception, " + ex.Message);
+                throw ex;
+            }
+        }
+        #endregion
+    }
+}
+

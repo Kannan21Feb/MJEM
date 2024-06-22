@@ -1,0 +1,2723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MJEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomersMst">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmplyoeeMst">
+          <Key>
+            <PropertyRef Name="EmplyoeeId" />
+          </Key>
+          <Property Name="EmplyoeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmplyoeeName" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="200" />
+          <Property Name="GovtId" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobSheetTxn">
+          <Key>
+            <PropertyRef Name="JobSheetTxnId" />
+          </Key>
+          <Property Name="JobSheetTxnId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobSheetTxnDet">
+          <Key>
+            <PropertyRef Name="JobTxnSheetDetId" />
+          </Key>
+          <Property Name="JobTxnSheetDetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobSheetTxnId" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="VechileId" Type="int" Nullable="false" />
+          <Property Name="RunningHours" Type="int" />
+          <Property Name="EmplyoeeId" Type="int" Nullable="false" />
+          <Property Name="Advance" Type="numeric" Precision="24" Scale="2" />
+          <Property Name="Rate" Type="numeric" Precision="24" Scale="2" />
+          <Property Name="DriverBeta" Type="numeric" Precision="24" Scale="2" />
+          <Property Name="DieselFrom" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DieselLtr" Type="numeric" Precision="24" Scale="2" />
+          <Property Name="DieselRate" Type="numeric" Precision="24" Scale="2" />
+        </EntityType>
+        <EntityType Name="LocationMst">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentLocationId" Type="int" />
+          <Property Name="LocationName" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaintananceTxn">
+          <Key>
+            <PropertyRef Name="MaintananceTxnId" />
+          </Key>
+          <Property Name="MaintananceTxnId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaintananceType" Type="int" Nullable="false" />
+          <Property Name="ServiceType" Type="int" Nullable="false" />
+          <Property Name="VechileId" Type="int" Nullable="false" />
+          <Property Name="MaintanceCost" Type="numeric" Precision="24" Scale="2" />
+          <Property Name="MaintananceDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MJEMSysLov">
+          <Key>
+            <PropertyRef Name="LovId" />
+          </Key>
+          <Property Name="LovId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ScreenName" Type="varchar" MaxLength="1000" />
+          <Property Name="FieldName" Type="varchar" MaxLength="1000" />
+          <Property Name="LovKey" Type="varchar" MaxLength="1000" />
+          <Property Name="FieldCode" Type="varchar" MaxLength="1000" />
+          <Property Name="FieldValue" Type="varchar" MaxLength="1000" />
+          <Property Name="Remarks" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SparePartsMst">
+          <Key>
+            <PropertyRef Name="SparePartId" />
+          </Key>
+          <Property Name="SparePartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AvilableQuantity" Type="int" />
+          <Property Name="SpartPartType" Type="int" />
+          <Property Name="SpartPartName" Type="varchar" MaxLength="1000" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VechileMst">
+          <Key>
+            <PropertyRef Name="VechileId" />
+          </Key>
+          <Property Name="VechileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VehcileType" Type="int" />
+          <Property Name="VechileNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__JobSheetT__Custo__286302EC">
+          <End Role="CustomersMst" Type="Self.CustomersMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__3D5E1FD2">
+          <End Role="CustomersMst" Type="Self.CustomersMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__52593CB8">
+          <End Role="CustomersMst" Type="Self.CustomersMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__6754599E">
+          <End Role="CustomersMst" Type="Self.CustomersMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__7D439ABD">
+          <End Role="CustomersMst" Type="Self.CustomersMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__2A4B4B5E">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__3F466844">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__5441852A">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__693CA210">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__7F2BE32F">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__00200768">
+          <End Role="EmplyoeeMst" Type="Self.EmplyoeeMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__2B3F6F97">
+          <End Role="EmplyoeeMst" Type="Self.EmplyoeeMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__403A8C7D">
+          <End Role="EmplyoeeMst" Type="Self.EmplyoeeMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__5535A963">
+          <End Role="EmplyoeeMst" Type="Self.EmplyoeeMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__6A30C649">
+          <End Role="EmplyoeeMst" Type="Self.EmplyoeeMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__01142BA1">
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__2C3393D0">
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__412EB0B6">
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__5629CD9C">
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__6B24EA82">
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__29572725">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__3E52440B">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__534D60F1">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__68487DD7">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__7E37BEF6">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="1" />
+          <End Role="JobSheetTxn" Type="Self.JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__02084FDA">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__2D27B809">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__4222D4EF">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__571DF1D5">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__6C190EBB">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="JobSheetTxnDet" Type="Self.JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__02FC7413">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="0..1" />
+          <End Role="LocationMst1" Type="Self.LocationMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__2E1BDC42">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="0..1" />
+          <End Role="LocationMst1" Type="Self.LocationMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__4316F928">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="0..1" />
+          <End Role="LocationMst1" Type="Self.LocationMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__5812160E">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="0..1" />
+          <End Role="LocationMst1" Type="Self.LocationMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__6D0D32F4">
+          <End Role="LocationMst" Type="Self.LocationMst" Multiplicity="0..1" />
+          <End Role="LocationMst1" Type="Self.LocationMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__03F0984C">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__2F10007B">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__440B1D61">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__59063A47">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__6E01572D">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__04E4BC85">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__300424B4">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__44FF419A">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__59FA5E80">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__6EF57B66">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__05D8E0BE">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__30F848ED">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__45F365D3">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__5AEE82B9">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__6FE99F9F">
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="1" />
+          <End Role="MaintananceTxn" Type="Self.MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__06CD04F7">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="MJEMSysLov1" Type="Self.MJEMSysLov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__31EC6D26">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="MJEMSysLov1" Type="Self.MJEMSysLov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__46E78A0C">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="MJEMSysLov1" Type="Self.MJEMSysLov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__5BE2A6F2">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="MJEMSysLov1" Type="Self.MJEMSysLov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__70DDC3D8">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="MJEMSysLov1" Type="Self.MJEMSysLov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__07C12930">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="SparePartsMst" Type="Self.SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__32E0915F">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="SparePartsMst" Type="Self.SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__47DBAE45">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="SparePartsMst" Type="Self.SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__5CD6CB2B">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="SparePartsMst" Type="Self.SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__71D1E811">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="SparePartsMst" Type="Self.SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__08B54D69">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__33D4B598">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__48CFD27E">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__5DCAEF64">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__72C60C4A">
+          <End Role="MJEMSysLov" Type="Self.MJEMSysLov" Multiplicity="0..1" />
+          <End Role="VechileMst" Type="Self.VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MJEMModelStoreContainer">
+          <EntitySet Name="CustomersMst" EntityType="Self.CustomersMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmplyoeeMst" EntityType="Self.EmplyoeeMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobSheetTxn" EntityType="Self.JobSheetTxn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobSheetTxnDet" EntityType="Self.JobSheetTxnDet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocationMst" EntityType="Self.LocationMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaintananceTxn" EntityType="Self.MaintananceTxn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MJEMSysLov" EntityType="Self.MJEMSysLov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SparePartsMst" EntityType="Self.SparePartsMst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VechileMst" EntityType="Self.VechileMst" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__JobSheetT__Custo__286302EC" Association="Self.FK__JobSheetT__Custo__286302EC">
+            <End Role="CustomersMst" EntitySet="CustomersMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__3D5E1FD2" Association="Self.FK__JobSheetT__Custo__3D5E1FD2">
+            <End Role="CustomersMst" EntitySet="CustomersMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__52593CB8" Association="Self.FK__JobSheetT__Custo__52593CB8">
+            <End Role="CustomersMst" EntitySet="CustomersMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__6754599E" Association="Self.FK__JobSheetT__Custo__6754599E">
+            <End Role="CustomersMst" EntitySet="CustomersMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__7D439ABD" Association="Self.FK__JobSheetT__Custo__7D439ABD">
+            <End Role="CustomersMst" EntitySet="CustomersMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__2A4B4B5E" Association="Self.FK__JobSheetT__Diese__2A4B4B5E">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__3F466844" Association="Self.FK__JobSheetT__Diese__3F466844">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__5441852A" Association="Self.FK__JobSheetT__Diese__5441852A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__693CA210" Association="Self.FK__JobSheetT__Diese__693CA210">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__7F2BE32F" Association="Self.FK__JobSheetT__Diese__7F2BE32F">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__00200768" Association="Self.FK__JobSheetT__Emply__00200768">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__2B3F6F97" Association="Self.FK__JobSheetT__Emply__2B3F6F97">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__403A8C7D" Association="Self.FK__JobSheetT__Emply__403A8C7D">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__5535A963" Association="Self.FK__JobSheetT__Emply__5535A963">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__6A30C649" Association="Self.FK__JobSheetT__Emply__6A30C649">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__01142BA1" Association="Self.FK__JobSheetT__JobSh__01142BA1">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__2C3393D0" Association="Self.FK__JobSheetT__JobSh__2C3393D0">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__412EB0B6" Association="Self.FK__JobSheetT__JobSh__412EB0B6">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__5629CD9C" Association="Self.FK__JobSheetT__JobSh__5629CD9C">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__6B24EA82" Association="Self.FK__JobSheetT__JobSh__6B24EA82">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__29572725" Association="Self.FK__JobSheetT__Locat__29572725">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__3E52440B" Association="Self.FK__JobSheetT__Locat__3E52440B">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__534D60F1" Association="Self.FK__JobSheetT__Locat__534D60F1">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__68487DD7" Association="Self.FK__JobSheetT__Locat__68487DD7">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__7E37BEF6" Association="Self.FK__JobSheetT__Locat__7E37BEF6">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__02084FDA" Association="Self.FK__JobSheetT__Vechi__02084FDA">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__2D27B809" Association="Self.FK__JobSheetT__Vechi__2D27B809">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__4222D4EF" Association="Self.FK__JobSheetT__Vechi__4222D4EF">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__571DF1D5" Association="Self.FK__JobSheetT__Vechi__571DF1D5">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__6C190EBB" Association="Self.FK__JobSheetT__Vechi__6C190EBB">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__02FC7413" Association="Self.FK__LocationM__Paren__02FC7413">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="LocationMst1" EntitySet="LocationMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__2E1BDC42" Association="Self.FK__LocationM__Paren__2E1BDC42">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="LocationMst1" EntitySet="LocationMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__4316F928" Association="Self.FK__LocationM__Paren__4316F928">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="LocationMst1" EntitySet="LocationMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__5812160E" Association="Self.FK__LocationM__Paren__5812160E">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="LocationMst1" EntitySet="LocationMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__6D0D32F4" Association="Self.FK__LocationM__Paren__6D0D32F4">
+            <End Role="LocationMst" EntitySet="LocationMst" />
+            <End Role="LocationMst1" EntitySet="LocationMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__03F0984C" Association="Self.FK__Maintanan__Maint__03F0984C">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__2F10007B" Association="Self.FK__Maintanan__Maint__2F10007B">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__440B1D61" Association="Self.FK__Maintanan__Maint__440B1D61">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__59063A47" Association="Self.FK__Maintanan__Maint__59063A47">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__6E01572D" Association="Self.FK__Maintanan__Maint__6E01572D">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__04E4BC85" Association="Self.FK__Maintanan__Servi__04E4BC85">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__300424B4" Association="Self.FK__Maintanan__Servi__300424B4">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__44FF419A" Association="Self.FK__Maintanan__Servi__44FF419A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__59FA5E80" Association="Self.FK__Maintanan__Servi__59FA5E80">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__6EF57B66" Association="Self.FK__Maintanan__Servi__6EF57B66">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__05D8E0BE" Association="Self.FK__Maintanan__Vechi__05D8E0BE">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__30F848ED" Association="Self.FK__Maintanan__Vechi__30F848ED">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__45F365D3" Association="Self.FK__Maintanan__Vechi__45F365D3">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__5AEE82B9" Association="Self.FK__Maintanan__Vechi__5AEE82B9">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__6FE99F9F" Association="Self.FK__Maintanan__Vechi__6FE99F9F">
+            <End Role="VechileMst" EntitySet="VechileMst" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__06CD04F7" Association="Self.FK__MJEMSysLo__Paren__06CD04F7">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__31EC6D26" Association="Self.FK__MJEMSysLo__Paren__31EC6D26">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__46E78A0C" Association="Self.FK__MJEMSysLo__Paren__46E78A0C">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__5BE2A6F2" Association="Self.FK__MJEMSysLo__Paren__5BE2A6F2">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__70DDC3D8" Association="Self.FK__MJEMSysLo__Paren__70DDC3D8">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLov" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__07C12930" Association="Self.FK__SparePart__Spart__07C12930">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__32E0915F" Association="Self.FK__SparePart__Spart__32E0915F">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__47DBAE45" Association="Self.FK__SparePart__Spart__47DBAE45">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__5CD6CB2B" Association="Self.FK__SparePart__Spart__5CD6CB2B">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__71D1E811" Association="Self.FK__SparePart__Spart__71D1E811">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__08B54D69" Association="Self.FK__VechileMs__Vehci__08B54D69">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="VechileMst" EntitySet="VechileMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__33D4B598" Association="Self.FK__VechileMs__Vehci__33D4B598">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="VechileMst" EntitySet="VechileMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__48CFD27E" Association="Self.FK__VechileMs__Vehci__48CFD27E">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="VechileMst" EntitySet="VechileMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__5DCAEF64" Association="Self.FK__VechileMs__Vehci__5DCAEF64">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="VechileMst" EntitySet="VechileMst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__72C60C4A" Association="Self.FK__VechileMs__Vehci__72C60C4A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLov" />
+            <End Role="VechileMst" EntitySet="VechileMst" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MJEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MJEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomersMsts" EntityType="MJEMModel.CustomersMst" />
+          <EntitySet Name="EmplyoeeMsts" EntityType="MJEMModel.EmplyoeeMst" />
+          <EntitySet Name="JobSheetTxns" EntityType="MJEMModel.JobSheetTxn" />
+          <EntitySet Name="LocationMsts" EntityType="MJEMModel.LocationMst" />
+          <EntitySet Name="MaintananceTxns" EntityType="MJEMModel.MaintananceTxn" />
+          <EntitySet Name="MJEMSysLovs" EntityType="MJEMModel.MJEMSysLov" />
+          <EntitySet Name="SparePartsMsts" EntityType="MJEMModel.SparePartsMst" />
+          <EntitySet Name="VechileMsts" EntityType="MJEMModel.VechileMst" />
+          <AssociationSet Name="FK__JobSheetT__Custo__286302EC" Association="MJEMModel.FK__JobSheetT__Custo__286302EC">
+            <End Role="CustomersMst" EntitySet="CustomersMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__3D5E1FD2" Association="MJEMModel.FK__JobSheetT__Custo__3D5E1FD2">
+            <End Role="CustomersMst" EntitySet="CustomersMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__52593CB8" Association="MJEMModel.FK__JobSheetT__Custo__52593CB8">
+            <End Role="CustomersMst" EntitySet="CustomersMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__6754599E" Association="MJEMModel.FK__JobSheetT__Custo__6754599E">
+            <End Role="CustomersMst" EntitySet="CustomersMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Custo__7D439ABD" Association="MJEMModel.FK__JobSheetT__Custo__7D439ABD">
+            <End Role="CustomersMst" EntitySet="CustomersMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__29572725" Association="MJEMModel.FK__JobSheetT__Locat__29572725">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__3E52440B" Association="MJEMModel.FK__JobSheetT__Locat__3E52440B">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__534D60F1" Association="MJEMModel.FK__JobSheetT__Locat__534D60F1">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__68487DD7" Association="MJEMModel.FK__JobSheetT__Locat__68487DD7">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Locat__7E37BEF6" Association="MJEMModel.FK__JobSheetT__Locat__7E37BEF6">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__02FC7413" Association="MJEMModel.FK__LocationM__Paren__02FC7413">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="LocationMst1" EntitySet="LocationMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__2E1BDC42" Association="MJEMModel.FK__LocationM__Paren__2E1BDC42">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="LocationMst1" EntitySet="LocationMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__4316F928" Association="MJEMModel.FK__LocationM__Paren__4316F928">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="LocationMst1" EntitySet="LocationMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__5812160E" Association="MJEMModel.FK__LocationM__Paren__5812160E">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="LocationMst1" EntitySet="LocationMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LocationM__Paren__6D0D32F4" Association="MJEMModel.FK__LocationM__Paren__6D0D32F4">
+            <End Role="LocationMst" EntitySet="LocationMsts" />
+            <End Role="LocationMst1" EntitySet="LocationMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__03F0984C" Association="MJEMModel.FK__Maintanan__Maint__03F0984C">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__2F10007B" Association="MJEMModel.FK__Maintanan__Maint__2F10007B">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__440B1D61" Association="MJEMModel.FK__Maintanan__Maint__440B1D61">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__59063A47" Association="MJEMModel.FK__Maintanan__Maint__59063A47">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Maint__6E01572D" Association="MJEMModel.FK__Maintanan__Maint__6E01572D">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__04E4BC85" Association="MJEMModel.FK__Maintanan__Servi__04E4BC85">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__300424B4" Association="MJEMModel.FK__Maintanan__Servi__300424B4">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__44FF419A" Association="MJEMModel.FK__Maintanan__Servi__44FF419A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__59FA5E80" Association="MJEMModel.FK__Maintanan__Servi__59FA5E80">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Servi__6EF57B66" Association="MJEMModel.FK__Maintanan__Servi__6EF57B66">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__05D8E0BE" Association="MJEMModel.FK__Maintanan__Vechi__05D8E0BE">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__30F848ED" Association="MJEMModel.FK__Maintanan__Vechi__30F848ED">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__45F365D3" Association="MJEMModel.FK__Maintanan__Vechi__45F365D3">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__5AEE82B9" Association="MJEMModel.FK__Maintanan__Vechi__5AEE82B9">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maintanan__Vechi__6FE99F9F" Association="MJEMModel.FK__Maintanan__Vechi__6FE99F9F">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="MaintananceTxn" EntitySet="MaintananceTxns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__06CD04F7" Association="MJEMModel.FK__MJEMSysLo__Paren__06CD04F7">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLovs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__31EC6D26" Association="MJEMModel.FK__MJEMSysLo__Paren__31EC6D26">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLovs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__46E78A0C" Association="MJEMModel.FK__MJEMSysLo__Paren__46E78A0C">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLovs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__5BE2A6F2" Association="MJEMModel.FK__MJEMSysLo__Paren__5BE2A6F2">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLovs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MJEMSysLo__Paren__70DDC3D8" Association="MJEMModel.FK__MJEMSysLo__Paren__70DDC3D8">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="MJEMSysLov1" EntitySet="MJEMSysLovs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__07C12930" Association="MJEMModel.FK__SparePart__Spart__07C12930">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__32E0915F" Association="MJEMModel.FK__SparePart__Spart__32E0915F">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__47DBAE45" Association="MJEMModel.FK__SparePart__Spart__47DBAE45">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__5CD6CB2B" Association="MJEMModel.FK__SparePart__Spart__5CD6CB2B">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SparePart__Spart__71D1E811" Association="MJEMModel.FK__SparePart__Spart__71D1E811">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="SparePartsMst" EntitySet="SparePartsMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__08B54D69" Association="MJEMModel.FK__VechileMs__Vehci__08B54D69">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__33D4B598" Association="MJEMModel.FK__VechileMs__Vehci__33D4B598">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__48CFD27E" Association="MJEMModel.FK__VechileMs__Vehci__48CFD27E">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__5DCAEF64" Association="MJEMModel.FK__VechileMs__Vehci__5DCAEF64">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VechileMs__Vehci__72C60C4A" Association="MJEMModel.FK__VechileMs__Vehci__72C60C4A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+          </AssociationSet>
+          <EntitySet Name="JobSheetTxnDets" EntityType="MJEMModel.JobSheetTxnDet" />
+          <AssociationSet Name="FK__JobSheetT__Emply__00200768" Association="MJEMModel.FK__JobSheetT__Emply__00200768">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__2B3F6F97" Association="MJEMModel.FK__JobSheetT__Emply__2B3F6F97">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__403A8C7D" Association="MJEMModel.FK__JobSheetT__Emply__403A8C7D">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__5535A963" Association="MJEMModel.FK__JobSheetT__Emply__5535A963">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Emply__6A30C649" Association="MJEMModel.FK__JobSheetT__Emply__6A30C649">
+            <End Role="EmplyoeeMst" EntitySet="EmplyoeeMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__01142BA1" Association="MJEMModel.FK__JobSheetT__JobSh__01142BA1">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__2C3393D0" Association="MJEMModel.FK__JobSheetT__JobSh__2C3393D0">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__412EB0B6" Association="MJEMModel.FK__JobSheetT__JobSh__412EB0B6">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__5629CD9C" Association="MJEMModel.FK__JobSheetT__JobSh__5629CD9C">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__JobSh__6B24EA82" Association="MJEMModel.FK__JobSheetT__JobSh__6B24EA82">
+            <End Role="JobSheetTxn" EntitySet="JobSheetTxns" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__2A4B4B5E" Association="MJEMModel.FK__JobSheetT__Diese__2A4B4B5E">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__3F466844" Association="MJEMModel.FK__JobSheetT__Diese__3F466844">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__5441852A" Association="MJEMModel.FK__JobSheetT__Diese__5441852A">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__693CA210" Association="MJEMModel.FK__JobSheetT__Diese__693CA210">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Diese__7F2BE32F" Association="MJEMModel.FK__JobSheetT__Diese__7F2BE32F">
+            <End Role="MJEMSysLov" EntitySet="MJEMSysLovs" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__02084FDA" Association="MJEMModel.FK__JobSheetT__Vechi__02084FDA">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__2D27B809" Association="MJEMModel.FK__JobSheetT__Vechi__2D27B809">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__4222D4EF" Association="MJEMModel.FK__JobSheetT__Vechi__4222D4EF">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__571DF1D5" Association="MJEMModel.FK__JobSheetT__Vechi__571DF1D5">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobSheetT__Vechi__6C190EBB" Association="MJEMModel.FK__JobSheetT__Vechi__6C190EBB">
+            <End Role="VechileMst" EntitySet="VechileMsts" />
+            <End Role="JobSheetTxnDet" EntitySet="JobSheetTxnDets" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CustomersMst">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="JobSheetTxns" Relationship="MJEMModel.FK__JobSheetT__Custo__286302EC" FromRole="CustomersMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns1" Relationship="MJEMModel.FK__JobSheetT__Custo__3D5E1FD2" FromRole="CustomersMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns2" Relationship="MJEMModel.FK__JobSheetT__Custo__52593CB8" FromRole="CustomersMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns3" Relationship="MJEMModel.FK__JobSheetT__Custo__6754599E" FromRole="CustomersMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns4" Relationship="MJEMModel.FK__JobSheetT__Custo__7D439ABD" FromRole="CustomersMst" ToRole="JobSheetTxn" />
+        </EntityType>
+        <EntityType Name="EmplyoeeMst">
+          <Key>
+            <PropertyRef Name="EmplyoeeId" />
+          </Key>
+          <Property Name="EmplyoeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmplyoeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="GovtId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="JobSheetTxnDets" Relationship="MJEMModel.FK__JobSheetT__Emply__00200768" FromRole="EmplyoeeMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets1" Relationship="MJEMModel.FK__JobSheetT__Emply__2B3F6F97" FromRole="EmplyoeeMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets2" Relationship="MJEMModel.FK__JobSheetT__Emply__403A8C7D" FromRole="EmplyoeeMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets3" Relationship="MJEMModel.FK__JobSheetT__Emply__5535A963" FromRole="EmplyoeeMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets4" Relationship="MJEMModel.FK__JobSheetT__Emply__6A30C649" FromRole="EmplyoeeMst" ToRole="JobSheetTxnDet" />
+          </EntityType>
+        <EntityType Name="JobSheetTxn">
+          <Key>
+            <PropertyRef Name="JobSheetTxnId" />
+          </Key>
+          <Property Name="JobSheetTxnId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CustomersMst" Relationship="MJEMModel.FK__JobSheetT__Custo__286302EC" FromRole="JobSheetTxn" ToRole="CustomersMst" />
+          <NavigationProperty Name="CustomersMst1" Relationship="MJEMModel.FK__JobSheetT__Custo__3D5E1FD2" FromRole="JobSheetTxn" ToRole="CustomersMst" />
+          <NavigationProperty Name="CustomersMst2" Relationship="MJEMModel.FK__JobSheetT__Custo__52593CB8" FromRole="JobSheetTxn" ToRole="CustomersMst" />
+          <NavigationProperty Name="CustomersMst3" Relationship="MJEMModel.FK__JobSheetT__Custo__6754599E" FromRole="JobSheetTxn" ToRole="CustomersMst" />
+          <NavigationProperty Name="CustomersMst4" Relationship="MJEMModel.FK__JobSheetT__Custo__7D439ABD" FromRole="JobSheetTxn" ToRole="CustomersMst" />
+          <NavigationProperty Name="LocationMst" Relationship="MJEMModel.FK__JobSheetT__Locat__29572725" FromRole="JobSheetTxn" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst1" Relationship="MJEMModel.FK__JobSheetT__Locat__3E52440B" FromRole="JobSheetTxn" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst2" Relationship="MJEMModel.FK__JobSheetT__Locat__534D60F1" FromRole="JobSheetTxn" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst3" Relationship="MJEMModel.FK__JobSheetT__Locat__68487DD7" FromRole="JobSheetTxn" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst4" Relationship="MJEMModel.FK__JobSheetT__Locat__7E37BEF6" FromRole="JobSheetTxn" ToRole="LocationMst" />
+          <NavigationProperty Name="JobSheetTxnDets" Relationship="MJEMModel.FK__JobSheetT__JobSh__01142BA1" FromRole="JobSheetTxn" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets1" Relationship="MJEMModel.FK__JobSheetT__JobSh__2C3393D0" FromRole="JobSheetTxn" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets2" Relationship="MJEMModel.FK__JobSheetT__JobSh__412EB0B6" FromRole="JobSheetTxn" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets3" Relationship="MJEMModel.FK__JobSheetT__JobSh__5629CD9C" FromRole="JobSheetTxn" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets4" Relationship="MJEMModel.FK__JobSheetT__JobSh__6B24EA82" FromRole="JobSheetTxn" ToRole="JobSheetTxnDet" />
+          </EntityType>
+        <EntityType Name="LocationMst">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentLocationId" Type="Int32" />
+          <Property Name="LocationName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="JobSheetTxns" Relationship="MJEMModel.FK__JobSheetT__Locat__29572725" FromRole="LocationMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns1" Relationship="MJEMModel.FK__JobSheetT__Locat__3E52440B" FromRole="LocationMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns2" Relationship="MJEMModel.FK__JobSheetT__Locat__534D60F1" FromRole="LocationMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns3" Relationship="MJEMModel.FK__JobSheetT__Locat__68487DD7" FromRole="LocationMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxns4" Relationship="MJEMModel.FK__JobSheetT__Locat__7E37BEF6" FromRole="LocationMst" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="LocationMst1" Relationship="MJEMModel.FK__LocationM__Paren__02FC7413" FromRole="LocationMst" ToRole="LocationMst1" />
+          <NavigationProperty Name="LocationMst2" Relationship="MJEMModel.FK__LocationM__Paren__02FC7413" FromRole="LocationMst1" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst11" Relationship="MJEMModel.FK__LocationM__Paren__2E1BDC42" FromRole="LocationMst" ToRole="LocationMst1" />
+          <NavigationProperty Name="LocationMst3" Relationship="MJEMModel.FK__LocationM__Paren__2E1BDC42" FromRole="LocationMst1" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst12" Relationship="MJEMModel.FK__LocationM__Paren__4316F928" FromRole="LocationMst" ToRole="LocationMst1" />
+          <NavigationProperty Name="LocationMst4" Relationship="MJEMModel.FK__LocationM__Paren__4316F928" FromRole="LocationMst1" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst13" Relationship="MJEMModel.FK__LocationM__Paren__5812160E" FromRole="LocationMst" ToRole="LocationMst1" />
+          <NavigationProperty Name="LocationMst5" Relationship="MJEMModel.FK__LocationM__Paren__5812160E" FromRole="LocationMst1" ToRole="LocationMst" />
+          <NavigationProperty Name="LocationMst14" Relationship="MJEMModel.FK__LocationM__Paren__6D0D32F4" FromRole="LocationMst" ToRole="LocationMst1" />
+          <NavigationProperty Name="LocationMst6" Relationship="MJEMModel.FK__LocationM__Paren__6D0D32F4" FromRole="LocationMst1" ToRole="LocationMst" />
+        </EntityType>
+        <EntityType Name="MaintananceTxn">
+          <Key>
+            <PropertyRef Name="MaintananceTxnId" />
+          </Key>
+          <Property Name="MaintananceTxnId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaintananceType" Type="Int32" Nullable="false" />
+          <Property Name="ServiceType" Type="Int32" Nullable="false" />
+          <Property Name="VechileId" Type="Int32" Nullable="false" />
+          <Property Name="MaintanceCost" Type="Decimal" Precision="24" Scale="2" />
+          <Property Name="MaintananceDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MJEMSysLov" Relationship="MJEMModel.FK__Maintanan__Maint__03F0984C" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov1" Relationship="MJEMModel.FK__Maintanan__Maint__2F10007B" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov2" Relationship="MJEMModel.FK__Maintanan__Maint__440B1D61" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov3" Relationship="MJEMModel.FK__Maintanan__Maint__59063A47" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov4" Relationship="MJEMModel.FK__Maintanan__Maint__6E01572D" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov5" Relationship="MJEMModel.FK__Maintanan__Servi__04E4BC85" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov6" Relationship="MJEMModel.FK__Maintanan__Servi__300424B4" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov7" Relationship="MJEMModel.FK__Maintanan__Servi__44FF419A" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov8" Relationship="MJEMModel.FK__Maintanan__Servi__59FA5E80" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov9" Relationship="MJEMModel.FK__Maintanan__Servi__6EF57B66" FromRole="MaintananceTxn" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="VechileMst" Relationship="MJEMModel.FK__Maintanan__Vechi__05D8E0BE" FromRole="MaintananceTxn" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst1" Relationship="MJEMModel.FK__Maintanan__Vechi__30F848ED" FromRole="MaintananceTxn" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst2" Relationship="MJEMModel.FK__Maintanan__Vechi__45F365D3" FromRole="MaintananceTxn" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst3" Relationship="MJEMModel.FK__Maintanan__Vechi__5AEE82B9" FromRole="MaintananceTxn" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst4" Relationship="MJEMModel.FK__Maintanan__Vechi__6FE99F9F" FromRole="MaintananceTxn" ToRole="VechileMst" />
+        </EntityType>
+        <EntityType Name="MJEMSysLov">
+          <Key>
+            <PropertyRef Name="LovId" />
+          </Key>
+          <Property Name="LovId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ScreenName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FieldName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="LovKey" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FieldCode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FieldValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MaintananceTxns" Relationship="MJEMModel.FK__Maintanan__Maint__03F0984C" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns1" Relationship="MJEMModel.FK__Maintanan__Maint__2F10007B" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns2" Relationship="MJEMModel.FK__Maintanan__Maint__440B1D61" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns3" Relationship="MJEMModel.FK__Maintanan__Maint__59063A47" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns4" Relationship="MJEMModel.FK__Maintanan__Maint__6E01572D" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns5" Relationship="MJEMModel.FK__Maintanan__Servi__04E4BC85" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns6" Relationship="MJEMModel.FK__Maintanan__Servi__300424B4" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns7" Relationship="MJEMModel.FK__Maintanan__Servi__44FF419A" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns8" Relationship="MJEMModel.FK__Maintanan__Servi__59FA5E80" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns9" Relationship="MJEMModel.FK__Maintanan__Servi__6EF57B66" FromRole="MJEMSysLov" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MJEMSysLov1" Relationship="MJEMModel.FK__MJEMSysLo__Paren__06CD04F7" FromRole="MJEMSysLov" ToRole="MJEMSysLov1" />
+          <NavigationProperty Name="MJEMSysLov2" Relationship="MJEMModel.FK__MJEMSysLo__Paren__06CD04F7" FromRole="MJEMSysLov1" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov11" Relationship="MJEMModel.FK__MJEMSysLo__Paren__31EC6D26" FromRole="MJEMSysLov" ToRole="MJEMSysLov1" />
+          <NavigationProperty Name="MJEMSysLov3" Relationship="MJEMModel.FK__MJEMSysLo__Paren__31EC6D26" FromRole="MJEMSysLov1" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov12" Relationship="MJEMModel.FK__MJEMSysLo__Paren__46E78A0C" FromRole="MJEMSysLov" ToRole="MJEMSysLov1" />
+          <NavigationProperty Name="MJEMSysLov4" Relationship="MJEMModel.FK__MJEMSysLo__Paren__46E78A0C" FromRole="MJEMSysLov1" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov13" Relationship="MJEMModel.FK__MJEMSysLo__Paren__5BE2A6F2" FromRole="MJEMSysLov" ToRole="MJEMSysLov1" />
+          <NavigationProperty Name="MJEMSysLov5" Relationship="MJEMModel.FK__MJEMSysLo__Paren__5BE2A6F2" FromRole="MJEMSysLov1" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov14" Relationship="MJEMModel.FK__MJEMSysLo__Paren__70DDC3D8" FromRole="MJEMSysLov" ToRole="MJEMSysLov1" />
+          <NavigationProperty Name="MJEMSysLov6" Relationship="MJEMModel.FK__MJEMSysLo__Paren__70DDC3D8" FromRole="MJEMSysLov1" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="SparePartsMsts" Relationship="MJEMModel.FK__SparePart__Spart__07C12930" FromRole="MJEMSysLov" ToRole="SparePartsMst" />
+          <NavigationProperty Name="SparePartsMsts1" Relationship="MJEMModel.FK__SparePart__Spart__32E0915F" FromRole="MJEMSysLov" ToRole="SparePartsMst" />
+          <NavigationProperty Name="SparePartsMsts2" Relationship="MJEMModel.FK__SparePart__Spart__47DBAE45" FromRole="MJEMSysLov" ToRole="SparePartsMst" />
+          <NavigationProperty Name="SparePartsMsts3" Relationship="MJEMModel.FK__SparePart__Spart__5CD6CB2B" FromRole="MJEMSysLov" ToRole="SparePartsMst" />
+          <NavigationProperty Name="SparePartsMsts4" Relationship="MJEMModel.FK__SparePart__Spart__71D1E811" FromRole="MJEMSysLov" ToRole="SparePartsMst" />
+          <NavigationProperty Name="VechileMsts" Relationship="MJEMModel.FK__VechileMs__Vehci__08B54D69" FromRole="MJEMSysLov" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMsts1" Relationship="MJEMModel.FK__VechileMs__Vehci__33D4B598" FromRole="MJEMSysLov" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMsts2" Relationship="MJEMModel.FK__VechileMs__Vehci__48CFD27E" FromRole="MJEMSysLov" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMsts3" Relationship="MJEMModel.FK__VechileMs__Vehci__5DCAEF64" FromRole="MJEMSysLov" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMsts4" Relationship="MJEMModel.FK__VechileMs__Vehci__72C60C4A" FromRole="MJEMSysLov" ToRole="VechileMst" />
+          <NavigationProperty Name="JobSheetTxnDets" Relationship="MJEMModel.FK__JobSheetT__Diese__2A4B4B5E" FromRole="MJEMSysLov" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets1" Relationship="MJEMModel.FK__JobSheetT__Diese__3F466844" FromRole="MJEMSysLov" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets2" Relationship="MJEMModel.FK__JobSheetT__Diese__5441852A" FromRole="MJEMSysLov" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets3" Relationship="MJEMModel.FK__JobSheetT__Diese__693CA210" FromRole="MJEMSysLov" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets4" Relationship="MJEMModel.FK__JobSheetT__Diese__7F2BE32F" FromRole="MJEMSysLov" ToRole="JobSheetTxnDet" />
+          </EntityType>
+        <EntityType Name="SparePartsMst">
+          <Key>
+            <PropertyRef Name="SparePartId" />
+          </Key>
+          <Property Name="SparePartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AvilableQuantity" Type="Int32" />
+          <Property Name="SpartPartType" Type="Int32" />
+          <Property Name="SpartPartName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MJEMSysLov" Relationship="MJEMModel.FK__SparePart__Spart__07C12930" FromRole="SparePartsMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov1" Relationship="MJEMModel.FK__SparePart__Spart__32E0915F" FromRole="SparePartsMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov2" Relationship="MJEMModel.FK__SparePart__Spart__47DBAE45" FromRole="SparePartsMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov3" Relationship="MJEMModel.FK__SparePart__Spart__5CD6CB2B" FromRole="SparePartsMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov4" Relationship="MJEMModel.FK__SparePart__Spart__71D1E811" FromRole="SparePartsMst" ToRole="MJEMSysLov" />
+        </EntityType>
+        <EntityType Name="VechileMst">
+          <Key>
+            <PropertyRef Name="VechileId" />
+          </Key>
+          <Property Name="VechileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VehcileType" Type="Int32" />
+          <Property Name="VechileNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MaintananceTxns" Relationship="MJEMModel.FK__Maintanan__Vechi__05D8E0BE" FromRole="VechileMst" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns1" Relationship="MJEMModel.FK__Maintanan__Vechi__30F848ED" FromRole="VechileMst" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns2" Relationship="MJEMModel.FK__Maintanan__Vechi__45F365D3" FromRole="VechileMst" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns3" Relationship="MJEMModel.FK__Maintanan__Vechi__5AEE82B9" FromRole="VechileMst" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MaintananceTxns4" Relationship="MJEMModel.FK__Maintanan__Vechi__6FE99F9F" FromRole="VechileMst" ToRole="MaintananceTxn" />
+          <NavigationProperty Name="MJEMSysLov" Relationship="MJEMModel.FK__VechileMs__Vehci__08B54D69" FromRole="VechileMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov1" Relationship="MJEMModel.FK__VechileMs__Vehci__33D4B598" FromRole="VechileMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov2" Relationship="MJEMModel.FK__VechileMs__Vehci__48CFD27E" FromRole="VechileMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov3" Relationship="MJEMModel.FK__VechileMs__Vehci__5DCAEF64" FromRole="VechileMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov4" Relationship="MJEMModel.FK__VechileMs__Vehci__72C60C4A" FromRole="VechileMst" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="JobSheetTxnDets" Relationship="MJEMModel.FK__JobSheetT__Vechi__02084FDA" FromRole="VechileMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets1" Relationship="MJEMModel.FK__JobSheetT__Vechi__2D27B809" FromRole="VechileMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets2" Relationship="MJEMModel.FK__JobSheetT__Vechi__4222D4EF" FromRole="VechileMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets3" Relationship="MJEMModel.FK__JobSheetT__Vechi__571DF1D5" FromRole="VechileMst" ToRole="JobSheetTxnDet" />
+          <NavigationProperty Name="JobSheetTxnDets4" Relationship="MJEMModel.FK__JobSheetT__Vechi__6C190EBB" FromRole="VechileMst" ToRole="JobSheetTxnDet" />
+        </EntityType>
+        <Association Name="FK__JobSheetT__Custo__286302EC">
+          <End Type="MJEMModel.CustomersMst" Role="CustomersMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__3D5E1FD2">
+          <End Type="MJEMModel.CustomersMst" Role="CustomersMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__52593CB8">
+          <End Type="MJEMModel.CustomersMst" Role="CustomersMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__6754599E">
+          <End Type="MJEMModel.CustomersMst" Role="CustomersMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Custo__7D439ABD">
+          <End Type="MJEMModel.CustomersMst" Role="CustomersMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomersMst">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__29572725">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__3E52440B">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__534D60F1">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__68487DD7">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Locat__7E37BEF6">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="JobSheetTxn">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__02FC7413">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="0..1" />
+          <End Type="MJEMModel.LocationMst" Role="LocationMst1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__2E1BDC42">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="0..1" />
+          <End Type="MJEMModel.LocationMst" Role="LocationMst1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__4316F928">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="0..1" />
+          <End Type="MJEMModel.LocationMst" Role="LocationMst1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__5812160E">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="0..1" />
+          <End Type="MJEMModel.LocationMst" Role="LocationMst1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LocationM__Paren__6D0D32F4">
+          <End Type="MJEMModel.LocationMst" Role="LocationMst" Multiplicity="0..1" />
+          <End Type="MJEMModel.LocationMst" Role="LocationMst1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationMst">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="LocationMst1">
+              <PropertyRef Name="ParentLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__03F0984C">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__2F10007B">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__440B1D61">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__59063A47">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Maint__6E01572D">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="MaintananceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__04E4BC85">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__300424B4">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__44FF419A">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__59FA5E80">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Servi__6EF57B66">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__05D8E0BE">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__30F848ED">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__45F365D3">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__5AEE82B9">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Maintanan__Vechi__6FE99F9F">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.MaintananceTxn" Role="MaintananceTxn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="MaintananceTxn">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__06CD04F7">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__31EC6D26">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__46E78A0C">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__5BE2A6F2">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MJEMSysLo__Paren__70DDC3D8">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="MJEMSysLov1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__07C12930">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.SparePartsMst" Role="SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__32E0915F">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.SparePartsMst" Role="SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__47DBAE45">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.SparePartsMst" Role="SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__5CD6CB2B">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.SparePartsMst" Role="SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SparePart__Spart__71D1E811">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.SparePartsMst" Role="SparePartsMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="SparePartsMst">
+              <PropertyRef Name="SpartPartType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__08B54D69">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__33D4B598">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__48CFD27E">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__5DCAEF64">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VechileMs__Vehci__72C60C4A">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="0..1" />
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="VechileMst">
+              <PropertyRef Name="VehcileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobSheetTxnDet">
+          <Key>
+            <PropertyRef Name="JobTxnSheetDetId" />
+          </Key>
+          <Property Name="JobTxnSheetDetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobSheetTxnId" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="VechileId" Type="Int32" Nullable="false" />
+          <Property Name="RunningHours" Type="Int32" />
+          <Property Name="EmplyoeeId" Type="Int32" Nullable="false" />
+          <Property Name="Advance" Type="Decimal" Precision="24" Scale="2" />
+          <Property Name="Rate" Type="Decimal" Precision="24" Scale="2" />
+          <Property Name="DriverBeta" Type="Decimal" Precision="24" Scale="2" />
+          <Property Name="DieselFrom" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DieselLtr" Type="Decimal" Precision="24" Scale="2" />
+          <Property Name="DieselRate" Type="Decimal" Precision="24" Scale="2" />
+          <NavigationProperty Name="EmplyoeeMst" Relationship="MJEMModel.FK__JobSheetT__Emply__00200768" FromRole="JobSheetTxnDet" ToRole="EmplyoeeMst" />
+          <NavigationProperty Name="EmplyoeeMst1" Relationship="MJEMModel.FK__JobSheetT__Emply__2B3F6F97" FromRole="JobSheetTxnDet" ToRole="EmplyoeeMst" />
+          <NavigationProperty Name="EmplyoeeMst2" Relationship="MJEMModel.FK__JobSheetT__Emply__403A8C7D" FromRole="JobSheetTxnDet" ToRole="EmplyoeeMst" />
+          <NavigationProperty Name="EmplyoeeMst3" Relationship="MJEMModel.FK__JobSheetT__Emply__5535A963" FromRole="JobSheetTxnDet" ToRole="EmplyoeeMst" />
+          <NavigationProperty Name="EmplyoeeMst4" Relationship="MJEMModel.FK__JobSheetT__Emply__6A30C649" FromRole="JobSheetTxnDet" ToRole="EmplyoeeMst" />
+          <NavigationProperty Name="JobSheetTxn" Relationship="MJEMModel.FK__JobSheetT__JobSh__01142BA1" FromRole="JobSheetTxnDet" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxn1" Relationship="MJEMModel.FK__JobSheetT__JobSh__2C3393D0" FromRole="JobSheetTxnDet" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxn2" Relationship="MJEMModel.FK__JobSheetT__JobSh__412EB0B6" FromRole="JobSheetTxnDet" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxn3" Relationship="MJEMModel.FK__JobSheetT__JobSh__5629CD9C" FromRole="JobSheetTxnDet" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="JobSheetTxn4" Relationship="MJEMModel.FK__JobSheetT__JobSh__6B24EA82" FromRole="JobSheetTxnDet" ToRole="JobSheetTxn" />
+          <NavigationProperty Name="MJEMSysLov" Relationship="MJEMModel.FK__JobSheetT__Diese__2A4B4B5E" FromRole="JobSheetTxnDet" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov1" Relationship="MJEMModel.FK__JobSheetT__Diese__3F466844" FromRole="JobSheetTxnDet" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov2" Relationship="MJEMModel.FK__JobSheetT__Diese__5441852A" FromRole="JobSheetTxnDet" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov3" Relationship="MJEMModel.FK__JobSheetT__Diese__693CA210" FromRole="JobSheetTxnDet" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="MJEMSysLov4" Relationship="MJEMModel.FK__JobSheetT__Diese__7F2BE32F" FromRole="JobSheetTxnDet" ToRole="MJEMSysLov" />
+          <NavigationProperty Name="VechileMst" Relationship="MJEMModel.FK__JobSheetT__Vechi__02084FDA" FromRole="JobSheetTxnDet" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst1" Relationship="MJEMModel.FK__JobSheetT__Vechi__2D27B809" FromRole="JobSheetTxnDet" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst2" Relationship="MJEMModel.FK__JobSheetT__Vechi__4222D4EF" FromRole="JobSheetTxnDet" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst3" Relationship="MJEMModel.FK__JobSheetT__Vechi__571DF1D5" FromRole="JobSheetTxnDet" ToRole="VechileMst" />
+          <NavigationProperty Name="VechileMst4" Relationship="MJEMModel.FK__JobSheetT__Vechi__6C190EBB" FromRole="JobSheetTxnDet" ToRole="VechileMst" />
+        </EntityType>
+        <Association Name="FK__JobSheetT__Emply__00200768">
+          <End Type="MJEMModel.EmplyoeeMst" Role="EmplyoeeMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__2B3F6F97">
+          <End Type="MJEMModel.EmplyoeeMst" Role="EmplyoeeMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__403A8C7D">
+          <End Type="MJEMModel.EmplyoeeMst" Role="EmplyoeeMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__5535A963">
+          <End Type="MJEMModel.EmplyoeeMst" Role="EmplyoeeMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Emply__6A30C649">
+          <End Type="MJEMModel.EmplyoeeMst" Role="EmplyoeeMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmplyoeeMst">
+              <PropertyRef Name="EmplyoeeId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="EmplyoeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__01142BA1">
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__2C3393D0">
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__412EB0B6">
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__5629CD9C">
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__JobSh__6B24EA82">
+          <End Type="MJEMModel.JobSheetTxn" Role="JobSheetTxn" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobSheetTxn">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="JobSheetTxnId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__2A4B4B5E">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__3F466844">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__5441852A">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__693CA210">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Diese__7F2BE32F">
+          <End Type="MJEMModel.MJEMSysLov" Role="MJEMSysLov" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MJEMSysLov">
+              <PropertyRef Name="LovId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="DieselFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__02084FDA">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__2D27B809">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__4222D4EF">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__571DF1D5">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobSheetT__Vechi__6C190EBB">
+          <End Type="MJEMModel.VechileMst" Role="VechileMst" Multiplicity="1" />
+          <End Type="MJEMModel.JobSheetTxnDet" Role="JobSheetTxnDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VechileMst">
+              <PropertyRef Name="VechileId" />
+            </Principal>
+            <Dependent Role="JobSheetTxnDet">
+              <PropertyRef Name="VechileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MJEMModelStoreContainer" CdmEntityContainer="MJEMEntities">
+          <EntitySetMapping Name="CustomersMsts">
+            <EntityTypeMapping TypeName="MJEMModel.CustomersMst">
+              <MappingFragment StoreEntitySet="CustomersMst">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmplyoeeMsts">
+            <EntityTypeMapping TypeName="MJEMModel.EmplyoeeMst">
+              <MappingFragment StoreEntitySet="EmplyoeeMst">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="GovtId" ColumnName="GovtId" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="EmplyoeeName" ColumnName="EmplyoeeName" />
+                <ScalarProperty Name="EmplyoeeId" ColumnName="EmplyoeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobSheetTxns">
+            <EntityTypeMapping TypeName="MJEMModel.JobSheetTxn">
+              <MappingFragment StoreEntitySet="JobSheetTxn">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="JobSheetTxnId" ColumnName="JobSheetTxnId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationMsts">
+            <EntityTypeMapping TypeName="MJEMModel.LocationMst">
+              <MappingFragment StoreEntitySet="LocationMst">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="ParentLocationId" ColumnName="ParentLocationId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintananceTxns">
+            <EntityTypeMapping TypeName="MJEMModel.MaintananceTxn">
+              <MappingFragment StoreEntitySet="MaintananceTxn">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MaintananceDate" ColumnName="MaintananceDate" />
+                <ScalarProperty Name="MaintanceCost" ColumnName="MaintanceCost" />
+                <ScalarProperty Name="VechileId" ColumnName="VechileId" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="MaintananceType" ColumnName="MaintananceType" />
+                <ScalarProperty Name="MaintananceTxnId" ColumnName="MaintananceTxnId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MJEMSysLovs">
+            <EntityTypeMapping TypeName="MJEMModel.MJEMSysLov">
+              <MappingFragment StoreEntitySet="MJEMSysLov">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="FieldValue" ColumnName="FieldValue" />
+                <ScalarProperty Name="FieldCode" ColumnName="FieldCode" />
+                <ScalarProperty Name="LovKey" ColumnName="LovKey" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="LovId" ColumnName="LovId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SparePartsMsts">
+            <EntityTypeMapping TypeName="MJEMModel.SparePartsMst">
+              <MappingFragment StoreEntitySet="SparePartsMst">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SpartPartName" ColumnName="SpartPartName" />
+                <ScalarProperty Name="SpartPartType" ColumnName="SpartPartType" />
+                <ScalarProperty Name="AvilableQuantity" ColumnName="AvilableQuantity" />
+                <ScalarProperty Name="SparePartId" ColumnName="SparePartId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VechileMsts">
+            <EntityTypeMapping TypeName="MJEMModel.VechileMst">
+              <MappingFragment StoreEntitySet="VechileMst">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VechileNumber" ColumnName="VechileNumber" />
+                <ScalarProperty Name="VehcileType" ColumnName="VehcileType" />
+                <ScalarProperty Name="VechileId" ColumnName="VechileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobSheetTxnDets">
+            <EntityTypeMapping TypeName="MJEMModel.JobSheetTxnDet">
+              <MappingFragment StoreEntitySet="JobSheetTxnDet">
+                <ScalarProperty Name="DieselRate" ColumnName="DieselRate" />
+                <ScalarProperty Name="DieselLtr" ColumnName="DieselLtr" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DieselFrom" ColumnName="DieselFrom" />
+                <ScalarProperty Name="DriverBeta" ColumnName="DriverBeta" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Advance" ColumnName="Advance" />
+                <ScalarProperty Name="EmplyoeeId" ColumnName="EmplyoeeId" />
+                <ScalarProperty Name="RunningHours" ColumnName="RunningHours" />
+                <ScalarProperty Name="VechileId" ColumnName="VechileId" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="JobSheetTxnId" ColumnName="JobSheetTxnId" />
+                <ScalarProperty Name="JobTxnSheetDetId" ColumnName="JobTxnSheetDetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA8F2126-73D3-45AD-998A-CE9E0086118A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSAT.DAL</RootNamespace>
+    <AssemblyName>CSAT.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.5\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapperIntialisation\AutoMapperMappingProfile.cs" />
+    <Compile Include="Contracts\ICustomerDAL\ICustomerDAL.cs" />
+    <Compile Include="Contracts\IAdminDAL.cs" />
+    <Compile Include="Contracts\IEmplyoeeDAL\IEmplyoeeDAL.cs" />
+    <Compile Include="Contracts\IJobSheetTxnDAL\IJobSheetTxnDAL.cs" />
+    <Compile Include="Contracts\ILocationDAL\ILocationDAL.cs" />
+    <Compile Include="Contracts\IMaintananceDAL\IMaintananceDAL.cs" />
+    <Compile Include="Contracts\ISparePartsDAL\ISparePartsDAL.cs" />
+    <Compile Include="Contracts\ITokenDAL.cs" />
+    <Compile Include="Contracts\IVechileDAL\IVechileDLL.cs" />
+    <Compile Include="EntityModel\CustomersMst.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\EmplyoeeMst.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\JobSheetTxn.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\JobSheetTxnDet.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\LocationMst.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MaintananceTxn.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MJEMEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MJEMEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MJEMEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MJEMEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MJEMEntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\MJEMSysLov.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SparePartsMst.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\VechileMst.cs">
+      <DependentUpon>MJEMEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\AdminDAL.cs" />
+    <Compile Include="Implementations\CustomerDAL\CustomerDAL.cs" />
+    <Compile Include="Implementations\EmplyoeeDAL\EmplyoeeDAL.cs" />
+    <Compile Include="Implementations\FeedbackServicesDAL.cs" />
+    <Compile Include="Helpers\DbHelpers.cs" />
+    <Compile Include="Helpers\QRGenerator.cs" />
+    <Compile Include="Helpers\URLManager.cs" />
+    <Compile Include="Implementations\JobSheetTxnDAL\JobSheetTxnDAL.cs" />
+    <Compile Include="Implementations\LocationDAL\LocationDAL.cs" />
+    <Compile Include="Implementations\MaintananceDAL\MaintananceDAL.cs" />
+    <Compile Include="Implementations\SparePartsDAL\SparePartsDAL.cs" />
+    <Compile Include="Implementations\TokenDAL.cs" />
+    <Compile Include="Implementations\VechileDAL\VechileDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSAT.DTO\CSAT.DTO.csproj">
+      <Project>{d9b51c09-d8ca-4ee1-b3f0-33405b47b565}</Project>
+      <Name>CSAT.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EntityDeploy Include="EntityModel\MJEMEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MJEMEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityModel\MJEMEntityModel.edmx.diagram">
+      <DependentUpon>MJEMEntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityModel\MJEMEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MJEMEntityModel.edmx</DependentUpon>
+      <LastGenOutput>MJEMEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\MJEMEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MJEMEntityModel.edmx</DependentUpon>
+      <LastGenOutput>MJEMEntityModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,203 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pantai</title>
+    <!-- Bootstrap -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300i,400,700" rel="stylesheet">
+    <!-- Font awesome -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="~/css/captcha.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg">
+    <div class="customer_satisfaction">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="divLogo" class="logo mt30 text-center">
+                    <img id="logoId" src="" alt="Logo" /> @*src="~/images/logo.png"*@
+                </div>
+                <div class="customer_satisfaction_content">
+                    <h1>Complaint</h1>
+                    <form class="form-horizontal">
+                        <div class="row btb">
+                            <div class="col-xs-12">
+                                <div class="bb">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <div class="form-group">
+                                                <label class="col-xs-12 control-label" for="textinput">Hospital Name</label>
+                                                <div class="col-xs-12 select-wrapper">
+                                                    <select id="ddlHospital" data-dropup-auto="false" data-size="5" tabindex="2" class="col-xs-12 form-control"
+                                                            style="width: 100%;height: 40px; top: -2px;" onchange="javascript:SelectHospital()">
+                                                        <option value="">Select</option>
+                                                    </select>
+                                                    @*<p class="form-control-static">Gleneagles Kuala Lumpur</p>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="form-group">
+                                                <label class="col-xs-12 control-label right" for="textinput">Hospital Code</label>
+                                                <div class="col-xs-12">
+                                                    <input id="txtHospitalCode" value="" readonly class="col-xs-12 form-control" />
+                                                    @*<p class="form-control-static text-right">GKSKL</p>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 control-label" for="textinput">User Location Name</label>
+                                            <div class="col-xs-12 select-wrapper">
+                                                <select id="ddlUserLocation" data-dropup-auto="false" data-size="5" tabindex="2" class="col-xs-12 form-control"
+                                                        style="width: 100%;height: 40px; top: -2px;" onchange="SelectUserLocation()">
+                                                    <option value="">Select</option>
+                                                </select>
+                                                @* <p class="form-control-static">Hospital Services - Customer Care Services</p>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="form-group">
+                                            <label class="col-xs-12 control-label right" for="textinput">User Location Code</label>
+                                            <div class="col-xs-12">
+                                                <input id="txtLocationCode" value="" readonly class="col-xs-12 form-control" />
+                                                @*<p class="form-control-static text-right">CC1</p>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-xs-12 control-label" for="textinput">Category</label>
+                                    <div class="col-xs-12">
+                                        <div class=" select-wrapper">
+                                            <select id="ddlcomplaintCategory" class="form-control">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input id="txtComments" name="textinput" type="text" placeholder="Comments" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="image_preview">
+                                    <div class="form-group">
+                                        <div class="panel">
+                                            <div class="panel-body">
+                                                <label class="upload_image" id="upOne">
+                                                    <span class="feature_logo"><img src="~/images/camera-icon.png" alt="Logo" /></span>
+                                                    <input type='file' id="input_one" onchange="readURL(this)" />
+                                                    <img id="dynamic-image" src="" />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="hidden_span">
+
+                                </span>
+                                <div id="sample-captcha" class="visualCaptcha">
+                                    <div class="visualCaptcha-accessibility-wrapper">
+                                        <div class="accessibility-description">Type below the <strong>answer</strong> to what you hear</div>
+                                        <div class="audio_input">
+                                            <input id="message" type="text" class="audioField" autocomplete="off">
+                                        </div>
+                                        <a href="javascript:void(0)" id="speak" class="waves-effect waves-light btn">Speak</a>
+                                    </div>
+                                    <p class="visualCaptcha-explanation">Click or touch the <strong class="verification_name"></strong></p>
+                                    <div class="captacha_center">
+                                        <div class="visualCaptcha-possibilities">
+
+
+                                        </div>
+                                        <div class="visualCaptcha-button-group">
+                                            <div class="visualCaptcha-refresh-button"><a href="javascript:void(0)"><img src="~/images/refresh.png" title="Refresh" alt="Refresh/reload icon"></a></div>
+                                            <div class="visualCaptcha-accessibility-button"><a href="javascript:void(0)"><img src="~/images/accessibility.png" title="Listen to a question and answer it!" alt="Sound icon"></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 text-center mb10">
+                                <label id="error" class="form-control-static text-center" style="color:red">Please enter the all fields</label>
+
+                                <a class="btn btn-primary" role="" onclick="javascript:Submit()">Submit</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--CDN jQuery-->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>*@
+    <script src="~/js/FeedbackServices/Config.js"></script>
+    <script src="~/js/FeedbackServices/Complaint.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!--Custom jq-->
+    <script src="~/js/captcha_custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".smiley").click(function () {
+                $(".smiley").each(function () {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+    <script>
+        //one
+        $(document).ready(function () {
+            if ($("#dynamic-image").attr('src') == '') {
+
+                $(".feature_logo").removeClass('display_none');
+            }
+            else {
+                $(".feature_logo").addClass('display_none');
+            }
+
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

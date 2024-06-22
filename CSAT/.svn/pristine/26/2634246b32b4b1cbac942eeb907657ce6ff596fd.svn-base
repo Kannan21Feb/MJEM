@@ -1,0 +1,16 @@
+﻿using CSAT.Resolver;
+using System;
+using System.ComponentModel.Composition;
+
+namespace CSAT.DAL.ComponentResolver
+{
+    [Export(typeof(IComponent))]
+    public class DependencyResolver : IComponent
+    {
+        public void SetUp(IRegisterComponent registerComponent)
+        {
+            registerComponent.RegisterType<ITokenDAL, TokenDAL>();
+            registerComponent.RegisterType<IAdminDAL, AdminDAL>();
+        }
+    }
+}

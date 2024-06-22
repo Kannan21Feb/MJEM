@@ -1,0 +1,54 @@
+﻿using CSAT.DAL.Helpers;
+using CSAT.Logging;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static CSAT.DAL.Helpers.DBHelpers;
+
+namespace CSAT.DAL
+{
+    public class AdminDAL : IAdminDAL
+    {
+        #region Private member variables.
+        private readonly DBHelpers _oDBHelper;
+        private Parameters[] colParameters = null;
+
+        #endregion
+        #region Public constructor.
+        /// <summary>
+        /// Public constructor.
+        /// </summary>
+        public AdminDAL(DBHelpers oDBHelpers)
+        {
+            _oDBHelper = oDBHelpers;
+        }
+        #endregion
+        public DataSet LoadDashboard()
+        {
+            LogHelper.Info("CSAT admin dashboard DAL method is log entry");
+            Parameters[] colParameters = null;
+
+            try
+            {
+                colParameters = new Parameters[]
+                                    {
+                                    };
+                DataSet ds = _oDBHelper.DataAdapter(CommandType.StoredProcedure, "usp_Dashboard", colParameters);
+                LogHelper.Info("CSAT admin dashboard DAL method is log exit");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("CSAT admin dashboard DAL method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                colParameters = null;
+            }
+        }
+    }
+}

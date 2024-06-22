@@ -1,0 +1,185 @@
+﻿using CSAT.DAL;
+using CSAT.DTO;
+using CSAT.Logging;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CSAT.BLL
+{
+    public class FeedbackServicesBLL
+    {
+        /// <summary>
+        /// Customer Satisfaction Survey object passed  
+        /// Create survey object 
+        /// </summary>
+        /// <param name="objSurvey"></param>
+        public void Save(SurveyDTO objSurvey)
+        {
+            LogHelper.Info("Customer Satisfaction Survey BLL method is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                if (!CSATValidation(objSurvey))
+                {
+                    feedbackServicesDAL.Save(objSurvey);
+                }
+            LogHelper.Info("Customer Satisfaction Survey BLL method is log exit");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey BLL method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+        public DataSet Load(int Id, string ShortKey)
+        {
+            LogHelper.Info("Customer Satisfaction Survey BLL Load method is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                DataSet ds =feedbackServicesDAL.Load(Id,ShortKey);
+                LogHelper.Info("Customer Satisfaction Survey BLL Load method is log exit");
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey BLL Load method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+        /// <summary>
+        /// Customer Satisfaction Survey object passed  
+        /// Create survey object 
+        /// </summary>
+        /// <param name="objSurvey"></param>
+        public void Save(ComplaintDTO objComplaint)
+        {
+            LogHelper.Info("Customer Satisfaction Survey BLL method is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                if (!CSATValidation(objComplaint))
+                {
+                    feedbackServicesDAL.Save(objComplaint);
+                }
+                LogHelper.Info("Customer Satisfaction Survey BLL method is log exit");
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey BLL method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+        public byte[] GenerateQRCode()
+        {
+            LogHelper.Info("Customer Satisfaction QR Code generation method  is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                LogHelper.Info("Customer Satisfaction QR Code generation method  is log exit");
+               return feedbackServicesDAL.GenerateQRCode();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction QR Code generation method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+        public string GenerateShorterURL()
+        {
+            LogHelper.Info("Customer Satisfaction ShorterURL generation method  is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                LogHelper.Info("Customer Satisfaction ShorterURL generation method  is log exit");
+                return feedbackServicesDAL.GenerateShorterURL();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction ShorterURL generation method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+
+        public string GetImageSrc()
+        {
+            LogHelper.Info("Customer Satisfaction Get ImageSrc method  is log entry");
+            FeedbackServicesDAL feedbackServicesDAL = new FeedbackServicesDAL();
+            try
+            {
+                LogHelper.Info("Customer Satisfaction Get ImageSrc method  is log exit");
+                return feedbackServicesDAL.GetImageSrc();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Get ImageSrc method exception, " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                feedbackServicesDAL = null;
+            }
+        }
+
+        #region CSAT Business validation 
+        public bool CSATValidation(dynamic objCSAT)
+        {
+            var _bResult = false;
+
+            Type type = objCSAT.GetType();
+            var className = type.Name;
+
+            PropertyInfo[] propertyInfo = type.GetProperties();
+
+            foreach (PropertyInfo pInfo in propertyInfo)
+            {
+                if ((pInfo.Name == "UserAreaID") || (pInfo.Name == "CssRateID" && className == "SurveyDTO")
+                    || (pInfo.Name == "ComplaintCategoryID" && className == "ComplaintDTO"))
+                {
+                    var userid = Convert.ToInt32(objCSAT.GetType().GetProperty(pInfo.Name).GetValue(objCSAT, null));
+                    var res = CommonValidation.MinIntValidation(userid);
+                    if (res) { _bResult = res; }
+                }
+                if (pInfo.Name == "Comments")
+                {
+                    var comments =Convert.ToString(objCSAT.GetType().GetProperty(pInfo.Name).GetValue(objCSAT, null));
+                    var res = CommonValidation.stringValidation(comments);
+                    if (res) { _bResult = res; }
+                }
+
+            }
+            return _bResult;
+        }
+        #endregion
+    }
+}

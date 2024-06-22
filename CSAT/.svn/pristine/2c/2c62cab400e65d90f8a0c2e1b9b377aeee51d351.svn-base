@@ -1,0 +1,58 @@
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web;
+
+namespace CSAT.WebAPI.Helpers
+{
+    public class ExportHelper
+    {
+        /// <summary>
+        /// PDF export method 
+        /// </summary>
+        /// <param name="objBytes"></param>
+        /// <returns></returns>
+        public static HttpResponseMessage PdfExport(byte[] objBytes,string strBaseImgSrc)
+        {
+            //string _basePath = HttpContext.Current.Server.MapPath(@"~\images\logo.png");
+            //byte[] logoByte = File.ReadAllBytes(_basePath);
+             byte[] logoByte = Convert.FromBase64String(strBaseImgSrc); 
+
+            using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
+            {
+                Document document = new Document(PageSize.A4);//, 4f, 4f, 3f, 3f);
+                PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
+                document.Open();
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(logoByte);// Converting bytes to Image
+                PdfPTable table = new PdfPTable(1);
+                table.AddCell(image);
+                document.Add(table);
+                image = iTextSharp.text.Image.GetInstance(objBytes);
+                image.ScaleAbsolute(10f, 10f);
+                table = new PdfPTable(1);
+                table.DefaultCell.Border = Rectangle.NO_BORDER;
+                table.AddCell(image);
+                document.Add(table);
+                document.Close();
+                objBytes = memoryStream.ToArray();
+                memoryStream.Close();
+            }
+
+            var fileName = "QRCodePrint" + "_" + DateTime.Now.ToString("dd_MMM_yyyy") + ".pdf";
+            var responseObject = new HttpResponseMessage
+            {
+                Content = new ByteArrayContent(objBytes)
+            };
+            responseObject.Content = new ByteArrayContent(objBytes);
+            responseObject.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment") { FileName = fileName };
+            responseObject.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            return responseObject;
+
+        }
+    }
+}

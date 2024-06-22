@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<script src="~/Scripts/ng/Controller/LocationMst/LocationDetailsController.js"></script>
+<script src="~/Scripts/ng/Services/LocationMst/LocationService.js"></script>
+
+
+<link href="~/css/MJEMPage.css" rel="stylesheet" />
+
+<div class="row" ng-controller="Location.LocationListController" ng-init="init()" ng-cloak>
+
+
+    <hr />
+    <div class="col-sm-12">
+        <div class="text-right">
+            <button type="submit" id="save" class="btn btn-warning" onclick="window.location.href='/LocationMst/Add'">Add New Location (+)</button>
+        </div>
+        <br />
+        <div>
+            <table class="table table-responsive ">
+
+                <thead class="tableHeading ">
+                    <tr>
+
+                        <th width="15%">City/Town</th>
+                        <th width="15%">Site(Location)</th>
+                        <th width="5%">Edit</th>
+                        <th width="5%">Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="L in LocationList  track by $index">
+                        <td style="display:none" ng-model="L.LocationId"></td>
+                        <td>{{L.ParentLocationName}}</td>
+                        <td>{{L.LocationName}}</td>
+                        <td ng-click="LocationEdit(L.LocationId)"><i class="glyphicon glyphicon-pencil PencilClr"></i></td>
+                        <td ng-click="LocationDelete(L.LocationId)"><i class="glyphicon glyphicon-trash TrashBinClr"></i></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+
+

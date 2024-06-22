@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<title>Vechile-List</title>
+<script src="~/Scripts/ng/Controller/VechileMst/VechileDetailsController.js"></script>
+<script src="~/Scripts/ng/Services/VechileService/VechileService.js"></script>
+
+<link href="~/css/MJEMPage.css" rel="stylesheet" />
+
+<div class="row" ng-controller="Vechile.VechileListController" ng-init="init()" ng-cloak>
+
+
+    <hr />
+    <div class="col-sm-12">
+        <div class="text-right">
+            <button type="submit" id="save" class="btn btn-warning" onclick="window.location.href='/VechileMst/Add'">Add New Vechile (+)</button>
+        </div>
+        <br />
+        <div>
+            <table class="table table-responsive ">
+
+                <thead class="tableHeading ">
+                    <tr>
+
+                        <th width="15%">Vechile Type</th>
+                        <th width="15%">Vechile Number</th>
+                        <th width="5%">Edit</th>
+                        <th width="5%">Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="VL in VechileList  track by $index">
+                        <td style="display:none" ng-model="VL.VechileId"></td>
+                        <td>{{VL.VehcileTypeValue}}</td>
+                        <td>{{VL.VechileNumber}}</td>
+                        <td ng-click="VechileEdit(VL.VechileId)"><i class="glyphicon glyphicon-pencil PencilClr"></i></td>
+                        <td ng-click="VechileDelete(VL.VechileId)"><i class="glyphicon glyphicon-trash TrashBinClr"></i></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

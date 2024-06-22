@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<script src="~/Scripts/ng/Controller/JobSheetTxn/JobSheetDetailsController.js"></script>
+<script src="~/Scripts/ng/Services/JobSheetTxn/JobSheetService.js"></script>
+
+<link href="~/css/MJEMPage.css" rel="stylesheet" />
+
+<div class="row" ng-controller="JobSheet.JobSheetListController" ng-init="init()" ng-cloak>
+
+
+    <hr />
+    <div class="col-sm-12">
+        <div class="text-right">
+            <button type="submit" id="save" class="btn btn-warning" onclick="window.location.href='/JobSheetTxn/Add'">Add New JobSheet (+)</button>
+        </div>
+        <br />
+        <div>
+            <table class="table table-responsive ">
+
+                <thead class="tableHeading ">
+                    <tr>
+
+                        <th width="15%">Customer</th>
+                        <th width="15%">City/Town</th>
+                        <th width="15%">Site (Location)</th>
+                        <th width="5%">Edit</th>
+                        <th width="5%">Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="J in JobSheetList  track by $index">
+                        <td style="display:none" ng-model="L.JobSheetId"></td>
+                        <td>{{J.Customer}}</td>
+                        <td>{{J.ParentLocation}}</td>
+                        <td>{{J.Location}}</td>
+                        <td ng-click="JobSheetEdit(J.JobSheetTxnId)"><i class="glyphicon glyphicon-pencil PencilClr"></i></td>
+                        <td ng-click="JobSheetDelete(J.JobSheetTxnId)"><i class="glyphicon glyphicon-trash TrashBinClr"></i></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>

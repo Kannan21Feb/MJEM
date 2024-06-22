@@ -1,0 +1,47 @@
+﻿using CSAT.BLL;
+using CSAT.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Routing;
+
+namespace CSAT.WebAPI.Controllers
+{
+    [RoutePrefix("api/Home")]
+    public class HomeApiController : ApiController
+    {
+        // GET: api/Home
+        [HttpGet]
+        public string Get()
+        {
+            return "CSAT Api time: "+ DateTime.Now.ToString();
+        }
+
+        [Route("ShortURL")]
+        [HttpGet]
+        public string GenerateShorterURL()
+        {
+            LogHelper.Info("Customer Satisfaction Survey API ShortURL generation  method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                var shortURL = feedbackServiceBLL.GenerateShorterURL();
+                LogHelper.Info("Customer Satisfaction Survey API ShortURL generation  method is log exit");
+                return shortURL;
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API ShortURL generation method is failed," + ex.Message);
+                return string.Empty;
+            }
+            finally
+            {
+                feedbackServiceBLL = null;
+            }
+        }
+    }
+}

@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Widgets  -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body" >
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-1">
+                        <i class="pe-7s-global"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">1350</span></div>
+                            <div class="stat-heading">Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-2">
+                        <i class="pe-7s-map"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">345</span></div>
+                            <div class="stat-heading">Facility</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-3">
+                        <i class="pe-7s-network"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">3149</span></div>
+                            <div class="stat-heading">UserArea</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-4">
+                        <i class="pe-7s-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text"><span class="count">2986</span></div>
+                            <div class="stat-heading">CSAT Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Widgets -->
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<!-- Orders -->
+<div class="orders">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Customer </h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h" style="width: 100%;">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="serial">1.</td>
+                                    <td>  <span class="name">Louis Stanley</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">2.</td>
+                                    <td>  <span class="name">Gregory Dixon</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">3.</td>
+                                    <td>  <span class="name">Catherine Dixon</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">4.</td>
+                                    <td>  <span class="name">Mary Silva</span> </td>
+                                    <td>
+                                        <span class="badge badge-pending">Inactive</span>
+                                    </td>
+                                </tr>
+                                <tr class=" pb-0">
+                                    <td class="serial">5.</td>
+                                    <td>  <span class="name">Johnny Stephens</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Facility </h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h" style="width: 100%;">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="serial">1.</td>
+                                    <td>  <span class="name">Louis Stanley</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">2.</td>
+                                    <td>  <span class="name">Gregory Dixon</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">3.</td>
+                                    <td>  <span class="name">Catherine Dixon</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="serial">4.</td>
+                                    <td>  <span class="name">Mary Silva</span> </td>
+                                    <td>
+                                        <span class="badge badge-pending">Inactive</span>
+                                    </td>
+                                </tr>
+                                <tr class=" pb-0">
+                                    <td class="serial">5.</td>
+                                    <td>  <span class="name">Johnny Stephens</span> </td>
+                                    <td>
+                                        <span class="badge badge-complete">Active</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>
+
+    </div>
+</div>
+<!-- /.orders -->

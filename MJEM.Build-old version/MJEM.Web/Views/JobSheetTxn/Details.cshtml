@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Scripts/ng/Controller/JobSheetTxn/JobSheetDetailsController.js"></script>
+<script src="~/Scripts/ng/Services/JobSheetTxn/JobSheetService.js"></script>
+
+<link href="~/css/MJEMPage.css" rel="stylesheet" />
+
+
+
+
+
+<div class="row" ng-controller="JobSheet.JobSheetDetailsController" ng-init="init();" ng-cloak>
+
+ 
+
+
+    <div class="col-sm-12">
+
+        <div class="text-right">
+            <i class="fa fa-file-pdf-o" id="pdf" aria-hidden="true" ng-click="Export(TxnId,'Pdf')"></i>
+            <i class="fa fa-file-excel-o" id="excel" aria-hidden="true" ng-click="Export(TxnId,'Excel')"></i>
+
+     
+        </div>
+
+        <br />
+
+        <form class="form-horizontal" name="form" id="form" novalidate>
+
+            <input type="hidden" value=@ViewBag.ActionType id="ActionType" name="ActionType" />
+            <input type="hidden" value=@ViewBag.id id="ActionId" name="ActionId" />
+            <input type="hidden" ng-model="TxnId" />
+            <div class="row">
+
+                <div class="col-sm-4 ">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Customer<span class="color-red"> *</span> </label>
+                        <div class="col-sm-6">
+                            <div>
+                                <input type="hidden" id="JobSheetId" only-name ng-model="JobSheetTxnId" class="form-control" autofocus required>
+                                <select id="CustomerName" name="CustomerName" class="form-control"
+                                        ng-model="CustomerId" ng-options="f.CustomerId as f.CustomerName for f in CustomersList"></select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 ">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">City/Town<span class="color-red"> *</span> </label>
+                        <div class="col-sm-6">
+                            <div>
+
+                                <select id="LocationName" name="LocationName" class="form-control"
+                                        ng-model="ParentLocationId" ng-change="SubLocation()" ng-options="f.LocationId as f.LocationName for f in ParentLocationsList"></select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 ">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Site(Location)<span class="color-red"> *</span> </label>
+                        <div class="col-sm-6">
+                            <div>
+                                
+                                <select id="LocationName" name="LocationName" class="form-control"
+                                        ng-model="LocationId"  ng-options="f.LocationId as f.LocationName for f in locationsList"></select>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+
+          
+
+
+            <hr class="new1">
+
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="tableHeading">
+                        
+                    </thead>
+                    <tbody>
+                                               
+                        <tr>
+                            
+                            <td rowspan="4" class="text-center"width="10%" style="font-weight: bolder;font-size:25px;">Total</td>
+
+                            <td colspan="1" style="font-weight: 900;font-size:13px;" width="25%">Running Hours</td>
+                            <td class="text-center"width="20%">{{TotalRunningHours}}</td>
+                           
+                            <td colspan="1" style="font-weight: 900;font-size:13px;" width="25%">Advance</td>
+                            <td class="text-center"width="20%">{{TotalAdvanceAmount}}</td>
+                           
+                        </tr>
+
+                        <tr>
+                            <td colspan="1" style="font-weight: 900;font-size:13px;"width="25%" >Disel (Ltr)</td>
+                            <td class="text-center"width="20%">{{TotalDiselUsed}}</td>
+                                                       
+                            <td colspan="1" style="font-weight: 900;font-size:13px;"width="25%">Bill</td>
+                            <td class="text-center"width="20%">{{TotalBillRs}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" style="font-weight: 900;font-size:13px;" width="25%">Diesel (Rs)</td>
+                            <td class="text-center" width="20%">{{TotalDiselRs}}</td>
+                           
+
+                            <td colspan="1" style="font-weight: 900;font-size:13px; color:red" width="25%"></td>
+                            <td class="text-center"width="20%"></td>
+
+                      </tr>
+                        <tr>
+                           
+                            <td colspan="1" style="font-weight: 900;font-size:13px;" width="25%">Driver Beta</td>
+                            <td class="text-center" width="20%">{{TotalDriverBeta}}</td>
+
+                            <td colspan="1" style="font-weight: 900;font-size:13px; color:red" width="25%">Outstanding Amount From Customer</td>
+                            <td class="text-center" width="20%">{{OutstandingAmount}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <hr class="new1">
+
+            
+
+            <br />
+            <table class="table table-bordered table-sm">
+            <thead class="">
+                    <tr>
+                        <th width="2%" ><i class="glyphicon glyphicon-trash TrashBinClr"></i></th>
+                        <th width="12%"><b></b>Date</th>
+                        <th width="12%"><b>Vehicle </b> </th>
+                        <th width="15%"><b>Driver</b> </th>
+                        <th width="8%"> <b>Rate</b></th>
+                        <th width="10%"> <b>Running Hours</b></th>
+                        <th width="8%"> <b>Disel(Ltr)</b></th>
+                        <th width="8%"> <b>Diesel(Rs)</b></th>
+                        <th width="9%"><b>Advance</b> </th>
+                        <th width="8%"><b>D.Beta</b></th>
+                        <th width="10%"><b>DieselFrom</b></th>
+                        <th width="10%"><b>Bill</b></th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="Jobsheet in JobSheetTxnDetList track by $index ">
+                    <td width="2%"><input type="checkbox" name="Delete" id="Idvalue{{$index+1}}" ng-model="Jobsheet.IsDeleted" /></td>
+                    <td style="display:none"  ng-model="Jobsheet.JobTxnSheetDetId"></td>
+                    
+                    <td width="12%"><input type="date"  ng-model="Jobsheet.DateTime"   class="form-control"></td>
+                    <td width="12%"><select class="form-control"  ng-model="Jobsheet.VechileId" ng-options="f.VechileId as f.VechileNumber for f in Jobsheet.VechileList"></select></td>
+                    <td width="15%"><select class="form-control"  ng-model="Jobsheet.EmplyoeeId" ng-options="f.EmplyoeeId as f.EmplyoeeName for f in Jobsheet.EmplyoeeList"></select></td>
+                    <td width="8%"><input type="text"  ng-change="OnChangeTotalValues('Rate',$index)" ng-model="Jobsheet.Rate" class="form-control"></td>
+                    <td width="10%"><input type="text" ng-change="OnChangeTotalValues('RunningHours',$index)" ng-model="Jobsheet.RunningHours" class="form-control"></td>
+                    <td width="8%"><input type="text"  ng-change="OnChangeTotalValues('DieselLtr',$index)" ng-model="Jobsheet.DieselLtr" class="form-control"></td>
+                    <td width="8%"><input type="text"  ng-change="OnChangeTotalValues('DieselRate',$index)" ng-model="Jobsheet.DieselRate" class="form-control"></td>
+                    <td width="9%"><input type="text"  ng-change="OnChangeTotalValues('Advance',$index)" ng-model="Jobsheet.Advance" class="form-control"></td>
+                    <td width="8%"><input type="text"  ng-change="OnChangeTotalValues('DriverBeta',$index)" ng-model="Jobsheet.DriverBeta" class="form-control"></td>
+                    <td width="10%"><select class="form-control"  name="location" ng-model="Jobsheet.DieselFrom" ng-options="f.LovId as f.FieldValue for f in Jobsheet.DieselFromList"></select></td>
+                    
+                    <td width="10%" >{{Jobsheet.TotalBill}}</td>
+                </tr>
+
+            </table>
+            <br />
+            <div class="text-left">
+                <button type="submit" id="insert" class="btn btn-success" data-ng-click="addnew()">Add(+)</button>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12 errmsg" style="color:red;" ng-show="errordisplay">
+                    <ul class="errormsgcenter" ng-if="errorlist.length > 0">
+                        <li ng-repeat="e in errorlist">
+                            {{e}}
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+            <div class="text-right">
+                <button type="submit" id="save" class="btn btn-primary" ng-click="PerformAction()">Save</button>
+                <button type="submit" id="Refresh" class="btn btn-warning" ng-click="clearfield()"> Refresh</button>
+                <button type="submit" id="Back" class="btn btn-dark" onclick="window.location.href = '/JobSheetTxn/Index'">Back</button>
+
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+</div>
+
+<style>
+    .new1
+    {
+        border: 1px solid grey;
+    }
+</style>

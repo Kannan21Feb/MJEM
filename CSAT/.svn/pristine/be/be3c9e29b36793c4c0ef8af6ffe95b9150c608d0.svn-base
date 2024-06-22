@@ -1,0 +1,149 @@
+﻿using System;
+using System.Data;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using CSAT.BLL;
+using CSAT.DTO;
+using CSAT.Logging;
+using CSAT.WebAPI.Helpers;
+
+namespace CSAT.WebAPI.Controllers
+{
+    [RoutePrefix("api/CSAT")]
+    public class FeedbackServicesApiController : ApiController
+    {
+        // POST: api/FeedbackServices
+        [Route("CSSurvey")]
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody] SurveyDTO ObjSurvey)
+        {
+            LogHelper.Info("Customer Satisfaction Survey API method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                if (!ModelState.IsValid || ObjSurvey == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                feedbackServiceBLL.Save(ObjSurvey);
+                LogHelper.Info("Customer Satisfaction Survey API method is log exit");
+
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API method is failed," + ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            finally
+            {
+                feedbackServiceBLL = null;
+            }
+        }
+
+
+        // POST: api/FeedbackServices
+        [Route("CSSurvey/Load/{id}/{ShortKey}")]
+        [HttpGet]
+        public HttpResponseMessage Get(string Id,string ShortKey) 
+        {
+            LogHelper.Info("Customer Satisfaction Survey API Load method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                DataSet ds = feedbackServiceBLL.Load(Convert.ToInt32(Id), ShortKey);
+                LogHelper.Info("Customer Satisfaction Survey API Load method is log exit");
+                return Request.CreateResponse(HttpStatusCode.Created, ds);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API Load method is failed," + ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            finally
+            {
+                feedbackServiceBLL = null;
+            }
+        }
+
+        [Route("Complaint")]
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody]ComplaintDTO ObjComplaint)
+        {
+
+            LogHelper.Info("Customer complaint API method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                if (!ModelState.IsValid || ObjComplaint == null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                feedbackServiceBLL.Save(ObjComplaint);
+
+                LogHelper.Info("Customer complaint API method is log exit");
+
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API method is failed," + ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [Route("PrintQRCode")]
+        [HttpGet]
+        public HttpResponseMessage GenerateQRCode()
+        {
+            LogHelper.Info("Customer Satisfaction Survey API QR Code generation  method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                var objBytes = feedbackServiceBLL.GenerateQRCode();
+                string strBaseImgSrc = feedbackServiceBLL.GetImageSrc();
+                LogHelper.Info("Customer Satisfaction Survey API QR Code generation  method is log exit");
+                return ExportHelper.PdfExport(objBytes, strBaseImgSrc);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API QR Code generation method is failed," + ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            finally
+            {
+                feedbackServiceBLL = null;
+            }
+        }
+
+        [Route("GetImage")]
+        [HttpGet]
+        public HttpResponseMessage GetImage()
+        {
+            LogHelper.Info("Customer Satisfaction Survey API Get ImageSrc  method is log entry");
+            FeedbackServicesBLL feedbackServiceBLL = null;
+            try
+            {
+                feedbackServiceBLL = new FeedbackServicesBLL();
+                string getImgSrc = feedbackServiceBLL.GetImageSrc();
+                LogHelper.Info("Customer Satisfaction Survey API Get ImageSrc  method is log exit");
+                return Request.CreateResponse(HttpStatusCode.Created, getImgSrc);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Error("Customer Satisfaction Survey API Get ImageSrc method is failed," + ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            finally
+            {
+                feedbackServiceBLL = null;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9aa47d8d4a8444abb5ef59f1312f027" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="MJEMModel.CustomersMst" Width="1.5" PointX="0.75" PointY="22.375" />
+        <EntityTypeShape EntityType="MJEMModel.EmplyoeeMst" Width="1.5" PointX="3" PointY="20.5" />
+        <EntityTypeShape EntityType="MJEMModel.JobSheetTxn" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="MJEMModel.LocationMst" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="MJEMModel.MaintananceTxn" Width="1.5" PointX="8.25" PointY="18.875" />
+        <EntityTypeShape EntityType="MJEMModel.MJEMSysLov" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="MJEMModel.SparePartsMst" Width="1.5" PointX="3" PointY="32.375" />
+        <EntityTypeShape EntityType="MJEMModel.VechileMst" Width="1.5" PointX="3" PointY="26" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Custo__286302EC" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Custo__3D5E1FD2" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Custo__52593CB8" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Custo__6754599E" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Custo__7D439ABD" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Locat__29572725" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Locat__3E52440B" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Locat__534D60F1" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Locat__68487DD7" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Locat__7E37BEF6" />
+        <AssociationConnector Association="MJEMModel.FK__LocationM__Paren__02FC7413" />
+        <AssociationConnector Association="MJEMModel.FK__LocationM__Paren__2E1BDC42" />
+        <AssociationConnector Association="MJEMModel.FK__LocationM__Paren__4316F928" />
+        <AssociationConnector Association="MJEMModel.FK__LocationM__Paren__5812160E" />
+        <AssociationConnector Association="MJEMModel.FK__LocationM__Paren__6D0D32F4" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Maint__03F0984C" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Maint__2F10007B" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Maint__440B1D61" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Maint__59063A47" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Maint__6E01572D" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Servi__04E4BC85" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Servi__300424B4" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Servi__44FF419A" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Servi__59FA5E80" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Servi__6EF57B66" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Vechi__05D8E0BE" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Vechi__30F848ED" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Vechi__45F365D3" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Vechi__5AEE82B9" />
+        <AssociationConnector Association="MJEMModel.FK__Maintanan__Vechi__6FE99F9F" />
+        <AssociationConnector Association="MJEMModel.FK__MJEMSysLo__Paren__06CD04F7" />
+        <AssociationConnector Association="MJEMModel.FK__MJEMSysLo__Paren__31EC6D26" />
+        <AssociationConnector Association="MJEMModel.FK__MJEMSysLo__Paren__46E78A0C" />
+        <AssociationConnector Association="MJEMModel.FK__MJEMSysLo__Paren__5BE2A6F2" />
+        <AssociationConnector Association="MJEMModel.FK__MJEMSysLo__Paren__70DDC3D8" />
+        <AssociationConnector Association="MJEMModel.FK__SparePart__Spart__07C12930" />
+        <AssociationConnector Association="MJEMModel.FK__SparePart__Spart__32E0915F" />
+        <AssociationConnector Association="MJEMModel.FK__SparePart__Spart__47DBAE45" />
+        <AssociationConnector Association="MJEMModel.FK__SparePart__Spart__5CD6CB2B" />
+        <AssociationConnector Association="MJEMModel.FK__SparePart__Spart__71D1E811" />
+        <AssociationConnector Association="MJEMModel.FK__VechileMs__Vehci__08B54D69" />
+        <AssociationConnector Association="MJEMModel.FK__VechileMs__Vehci__33D4B598" />
+        <AssociationConnector Association="MJEMModel.FK__VechileMs__Vehci__48CFD27E" />
+        <AssociationConnector Association="MJEMModel.FK__VechileMs__Vehci__5DCAEF64" />
+        <AssociationConnector Association="MJEMModel.FK__VechileMs__Vehci__72C60C4A" />
+        <EntityTypeShape EntityType="MJEMModel.JobSheetTxnDet" Width="1.5" PointX="5.25" PointY="12" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Emply__00200768" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Emply__2B3F6F97" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Emply__403A8C7D" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Emply__5535A963" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Emply__6A30C649" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__JobSh__01142BA1" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__JobSh__2C3393D0" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__JobSh__412EB0B6" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__JobSh__5629CD9C" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__JobSh__6B24EA82" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Diese__2A4B4B5E" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Diese__3F466844" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Diese__5441852A" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Diese__693CA210" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Diese__7F2BE32F" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Vechi__02084FDA" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Vechi__2D27B809" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Vechi__4222D4EF" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Vechi__571DF1D5" />
+        <AssociationConnector Association="MJEMModel.FK__JobSheetT__Vechi__6C190EBB" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

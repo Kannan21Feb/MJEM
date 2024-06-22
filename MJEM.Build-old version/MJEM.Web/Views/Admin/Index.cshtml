@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Widgets  -->
+<div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-1">
+                        <i class="fa fa-inr"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text" id="cnt1">
+                            <span class="Decimalcount color-green" id="cnt1span1">34340.00</span> <span class="color-gray" id="cnt1span2"> / </span> <span class="Decimalcount color-red" id="cnt1span3">97345.00</span>
+                            </div>
+                            <div class="stat-heading">Pending / Collected Amount</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-4">
+                        <i class="fa fa-fire"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text" id="cnt2"><span class="count">0</span></div>
+                            <div class="stat-heading">Total Fuel Used (ltr)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-five">
+                    <div class="stat-icon dib flat-color-3">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="text-left dib">
+                            <div class="stat-text" id="cnt3"><span class="Decimalcount">098750.00</span></div>
+                            <div class="stat-heading">Tot.Maintanace Cost</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<!-- /Widgets -->
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+<!-- Orders -->
+<div class="orders">
+    <div class="row">
+        @*<div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Speed O Meter Status </h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h" style="width: 100%;">
+                        <table class="table " id="tblCustomer">
+                            <thead>
+                                <tr>
+                                    <th class="serial">No</th>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->*@
+
+        <hr />
+        <div class="col-lg-12">
+            
+            <div class="card">
+                <div class="card-body">
+                   <div class="table-stats" style="width: 100%;">
+                        <table class="table" id="tblFacility">
+                           
+                                <tr>
+                                    <th></th>
+                                    <th class="TableClassRow1">Vechile No</th>
+                                    <th> Diesel Spent (<i class="fa fa-inr"></i>) </th>
+                                    <th>Total Km ()</th>
+                                    <th>Maintanance Cost Spent (<i class="fa fa-inr"></i>)</th>
+                                </tr>
+                            
+                            <tbody></tbody>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fa fa-cc-jcb"></i></td>
+                                    <td><span class="name">TN 43 5023</span></td>
+                                    <td><span class="Decimalcount">1500.00</span></td>
+                                    <td><span class="Decimalcount">7500</span></td>
+                                    <td><span class="Decimalcount">6000.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-motorcycle"></i></td>
+                                    <td><span class="name">TN 43 2353</span></td>
+                                    <td><span class="Decimalcount">15050.43</span></td>
+                                    <td><span class="Decimalcount">75070</span></td>
+                                    <td><span class="Decimalcount">34540.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-car"></i></td>
+                                    <td><span class="name">TN 43 3322</span></td>
+                                    <td><span class="Decimalcount">435656.50</span></td>
+                                    <td><span class="Decimalcount">345344</span></td>
+                                    <td><span class="Decimalcount">353455.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-cc-jcb"></i></td>
+                                    <td><span class="name">TN 43 2386</span></td>
+                                    <td><span class="Decimalcount">93497.00</span></td>
+                                    <td><span class="Decimalcount">4563565</span></td>
+                                    <td><span class="Decimalcount">848734.20</span></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-motorcycle"></i></td>
+                                    <td><span class="name">TN 43 1234</span></td>
+                                    <td><span class="Decimalcount">893498.28</span></td>
+                                    <td><span class="Decimalcount">9809234</span></td>
+                                    <td><span class="Decimalcount">534545.00</span></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table- -->
+                </div>
+            </div> <!-- /. -->
+        </div>
+
+    </div>
+</div>
+<!-- local scripts -->
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/js/FeedbackServices/Config.js"></script>
+<script src="~/js/Admin/AdminDashboard.js"></script>
