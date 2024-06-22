@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\New\Demo_Projects\Demo_Projects\Kannan\CSAT\CSAT.WebAPI\CSAT.DAL\EntityModel\MJEMEntityModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Git\MJEM\CSAT\CSAT.WebAPI\CSAT.DAL\EntityModel\MJEMEntityModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
